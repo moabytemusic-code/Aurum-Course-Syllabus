@@ -1,8 +1,9 @@
 import React from 'react';
 import { courseModules } from '../data/courseData';
 import { Book } from 'lucide-react';
+import ThemePicker from './ThemePicker';
 
-const SidebarSyllabus = ({ activeModuleId, onSelectModule }) => {
+const SidebarSyllabus = ({ activeModuleId, onSelectModule, theme, setTheme }) => {
   return (
     <div style={{
       width: '320px',
@@ -61,6 +62,11 @@ const SidebarSyllabus = ({ activeModuleId, onSelectModule }) => {
             )}
           </div>
         ))}
+      </div>
+
+      <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)' }}>
+        <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: '600' }}>Templates</p>
+        <ThemePicker currentTheme={theme} onChangeTheme={setTheme} />
       </div>
     </div>
   );

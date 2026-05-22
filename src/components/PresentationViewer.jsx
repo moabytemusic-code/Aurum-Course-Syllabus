@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import SlideContainer from './SlideContainer';
+import ThemePicker from './ThemePicker';
 
 // Style objects for unified slide layouts
 const liStyle = {
@@ -40,7 +41,7 @@ const spanStyle = {
   lineHeight: 1.5
 };
 
-const PresentationViewer = ({ onExit }) => {
+const PresentationViewer = ({ onExit, theme, setTheme }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   // Define static high-impact Webinar presentation slides
@@ -418,6 +419,11 @@ const PresentationViewer = ({ onExit }) => {
       {/* Ambient Background Glows */}
       <div className="app-background" style={{ zIndex: 0 }}></div>
       
+      {/* Theme Picker floating top-left */}
+      <div style={{ position: 'absolute', top: '2.2rem', left: '2rem', zIndex: 1001 }}>
+        <ThemePicker currentTheme={theme} onChangeTheme={setTheme} isDarkBackdrop={true} />
+      </div>
+
       {/* Exit Button */}
       <button 
         onClick={onExit}

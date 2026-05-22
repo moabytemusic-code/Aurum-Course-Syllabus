@@ -6,6 +6,12 @@ import './App.css';
 
 function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('aurum-theme') || 'aurum');
+
+  React.useEffect(() => {
+    document.body.className = `theme-${theme}`;
+    localStorage.setItem('aurum-theme', theme);
+  }, [theme]);
 
   return (
     <>
@@ -42,9 +48,16 @@ function App() {
       )}
 
       {isPresentationMode ? (
-        <PresentationViewer onExit={() => setIsPresentationMode(false)} />
+        <PresentationViewer 
+          onExit={() => setIsPresentationMode(false)} 
+          theme={theme}
+          setTheme={setTheme}
+        />
       ) : (
-        <CourseLayout />
+        <CourseLayout 
+          theme={theme}
+          setTheme={setTheme}
+        />
       )}
     </>
   );

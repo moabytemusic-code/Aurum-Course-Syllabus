@@ -4,7 +4,7 @@ import CourseTopic from './CourseTopic';
 import { courseModules } from '../data/courseData';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const CourseLayout = () => {
+const CourseLayout = ({ theme, setTheme }) => {
   const [activeModuleId, setActiveModuleId] = useState(courseModules[0].id);
 
   const activeModule = courseModules.find(m => m.id === activeModuleId);
@@ -14,6 +14,8 @@ const CourseLayout = () => {
       <SidebarSyllabus 
         activeModuleId={activeModuleId} 
         onSelectModule={setActiveModuleId} 
+        theme={theme}
+        setTheme={setTheme}
       />
       
       <div style={{ 
