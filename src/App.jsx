@@ -14,11 +14,12 @@ function App() {
   });
 
   React.useEffect(() => {
-    document.body.className = `theme-${theme} text-scale-${textScale} ${glowEnabled ? '' : 'glow-disabled'}`;
+    const presentationClass = isPresentationMode ? 'presentation-mode' : '';
+    document.body.className = `theme-${theme} text-scale-${textScale} ${glowEnabled ? '' : 'glow-disabled'} ${presentationClass}`;
     localStorage.setItem('aurum-theme', theme);
     localStorage.setItem('aurum-text-scale', textScale);
     localStorage.setItem('aurum-glow-enabled', String(glowEnabled));
-  }, [theme, textScale, glowEnabled]);
+  }, [theme, textScale, glowEnabled, isPresentationMode]);
 
   return (
     <>
@@ -35,22 +36,22 @@ function App() {
             background: 'var(--accent-gold)',
             color: '#000',
             border: 'none',
-            padding: '0.75rem 1.5rem',
-            borderRadius: '30px',
+            padding: '0.5rem 1rem',
+            borderRadius: '20px',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem',
+            gap: '0.4rem',
             cursor: 'pointer',
             zIndex: 100,
             transition: 'all 0.2s',
-            fontSize: '1rem',
+            fontSize: '0.85rem',
             fontWeight: 'bold',
             boxShadow: '0 4px 15px rgba(251, 191, 36, 0.4)'
           }}
           onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
           onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          <MonitorPlay size={20} /> Enter Presentation Mode
+          <MonitorPlay size={16} /> Enter Presentation Mode
         </button>
       )}
 
