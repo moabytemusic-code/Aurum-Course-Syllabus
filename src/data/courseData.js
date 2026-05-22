@@ -86,7 +86,7 @@ Joining Aurum is simple, but because we grow through our network, you must be in
 **3. Activating Your Access:**
 - Confirm your email using the verification code sent to your inbox.
 - Connect your [Web3 wallet](#tooltip:Web3%20Wallet%3A%20A%20decentralized%20wallet%20(like%20MetaMask%20or%20Trust%20Wallet)%20that%20allows%20users%20to%20interact%20with%20decentralized%20applications%20(dApps)%20directly).
-- Once registered, "Connect Wallet" goto "Partner Portal" Membership and pay 19.99 [USDT](#tooltip:A%20stablecoin%20cryptocurrency%20pegged%201:1%20to%20the%20US%20Dollar) to unlock full platform access for one year. This allows access to all bots and participation in the Partner Program.
+- Once registered, "Connect Wallet" goto Dashboard and select "Access to Aurum Ecosystem" and pay 19.99 [USDT](#tooltip:A%20stablecoin%20cryptocurrency%20pegged%201:1%20to%20the%20US%20Dollar) to unlock full platform access for one year. This allows access to all bots and participation in the Partner Program.
         `
       }
     ]
