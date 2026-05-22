@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('aurum-theme') || 'aurum');
+  const [theme, setTheme] = useState(() => localStorage.getItem('aurum-theme') || 'slate');
   const [textScale, setTextScale] = useState(() => localStorage.getItem('aurum-text-scale') || 'medium');
   const [glowEnabled, setGlowEnabled] = useState(() => {
     const saved = localStorage.getItem('aurum-glow-enabled');

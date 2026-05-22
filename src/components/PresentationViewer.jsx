@@ -24,7 +24,7 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 1: Welcome/Hook
       <SlideContainer key="slide-1" className="text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '55vh' }}>
         <div style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(251,191,36,0.1)', padding: '0.5rem 1.25rem', borderRadius: '30px', border: '1px solid rgba(251,191,36,0.2)' }}>
-          <Sparkles size={18} style={{ color: 'var(--accent-gold)' }} />
+          <Sparkles size={18} style={{ color: 'var(--accent-gold)' }} aria-hidden="true" />
           <span style={{ fontSize: '0.9rem', color: 'var(--accent-gold)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' }}>Introducing Aurum</span>
         </div>
         <h1 className="text-gradient" style={{ fontSize: '4.2rem', marginBottom: '1.5rem', lineHeight: 1.25, fontWeight: 700, maxWidth: '950px' }}>
@@ -38,25 +38,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 2: The Core Problem (Wealth Erosion)
       <SlideContainer key="slide-2">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: '#f87171', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <AlertCircle size={36} /> The Double-Sided Dilemma: Stagnant Banks vs. High-Risk Crypto
+          <AlertCircle size={36} aria-hidden="true" /> The Double-Sided Dilemma: Stagnant Banks vs. High-Risk Crypto
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <TrendingDown size={28} style={{ ...iconStyle, color: '#f87171' }} />
+            <TrendingDown size={28} style={{ ...iconStyle, color: '#f87171' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Negative Real Yields</strong>
               <span style={spanStyle}>Keeping cash in traditional bank accounts is a guaranteed way to lose purchasing power daily to inflation.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <HelpCircle size={28} style={{ ...iconStyle, color: '#fb923c' }} />
+            <HelpCircle size={28} style={{ ...iconStyle, color: '#fb923c' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>The Jargon Barrier</strong>
               <span style={spanStyle}>DeFi protocols, gas structures, and private seed keys lock out 95% of ordinary savers who want to grow their money.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <ShieldAlert size={28} style={{ ...iconStyle, color: '#f87171' }} />
+            <ShieldAlert size={28} style={{ ...iconStyle, color: '#f87171' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>The Custody Risk</strong>
               <span style={spanStyle}>Sending your hard-earned capital to unregulated third-party platforms exposes you to exit scams, hacks, and account freezes.</span>
@@ -68,25 +68,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 3: The Pivot (Introducing Aurum)
       <SlideContainer key="slide-3">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Layers size={36} /> Aurum: The Digital Bridge
+          <Layers size={36} aria-hidden="true" /> Aurum: The Digital Bridge
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} />
+            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Simplifying the Future of Wealth</strong>
               <span style={spanStyle}>A secure, compliant, and seamless interface bridging traditional fiat card banking with digital asset products.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Users size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} />
+            <Users size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Institutional Leadership</strong>
               <span style={spanStyle}>Led by CEO Bryan Benson (former Binance director) and co-founders Drei Menza (Trading Ops) and Ahmad Zen (Marketing).</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Zap size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Zap size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Automated Wealth Engines</strong>
               <span style={spanStyle}>Deploying intelligent, pre-tested AI algorithms to work on your behalf, removing human panic, exhaustion, and bias.</span>
@@ -98,25 +98,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 4: Neyro AI Agent (Safety First)
       <SlideContainer key="slide-4">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <ShieldCheck size={36} style={{ color: '#10b981' }} /> Neyro AI Agent: Keep 100% Control of Your Money
+          <ShieldCheck size={36} style={{ color: '#10b981' }} aria-hidden="true" /> Neyro AI Agent: Keep 100% Control of Your Money
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <Key size={28} style={{ ...iconStyle, color: '#ec4899' }} />
+            <Key size={28} style={{ ...iconStyle, color: '#ec4899' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>100% Non-Custodial Security</strong>
               <span style={spanStyle}>Your money never leaves your personal, secure wallet. Neyro operates via secure APIs—you retain full capital control.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Cpu size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} />
+            <Cpu size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Disciplined Autonomous Execution</strong>
               <span style={spanStyle}>The AI agent continuously scans the markets and executes trades on your behalf 24/7 without fatigue.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Sparkles size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Sparkles size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Quantum Alpha Beta Trial</strong>
               <span style={spanStyle}>Participate in the active beta trial strategy with 0% performance fees, keeping 100% of all generated gains.</span>
@@ -128,25 +128,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 5: EX-A1 Bot (Arbitrage)
       <SlideContainer key="slide-5">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <ArrowRightLeft size={36} style={{ color: 'var(--accent-blue)' }} /> EX-A1 Bot: Capturing Low-Risk Market Inefficiencies
+          <ArrowRightLeft size={36} style={{ color: 'var(--accent-blue)' }} aria-hidden="true" /> EX-A1 Bot: Capturing Low-Risk Market Inefficiencies
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} />
+            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>High-Speed Spot Arbitrage</strong>
               <span style={spanStyle}>Exploits momentary price discrepancies for the same asset between different global exchanges for low-risk gains.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Layers size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} />
+            <Layers size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Hands-Free Passive Tiers</strong>
               <span style={spanStyle}>Start with deposit packages scaling from 100 USDT (Basic) to Comfort, up to 25,000 USDT (VIP).</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Lucrative Profit Sharing</strong>
               <span style={spanStyle}>Receive daily profit payouts scaling up to 85% of total generated bot gains based on your selected package tier.</span>
@@ -158,25 +158,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 6: Real World Assets (RWA Gold)
       <SlideContainer key="slide-6">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Coins size={36} /> RWA Gold: Physical Vault Security + Active Yield
+          <Coins size={36} aria-hidden="true" /> RWA Gold: Physical Vault Security + Active Yield
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <ShieldCheck size={28} style={{ ...iconStyle, color: '#10b981' }} />
+            <ShieldCheck size={28} style={{ ...iconStyle, color: '#10b981' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Swiss Vaulted Gold backing (50%)</strong>
               <span style={spanStyle}>Half of your capital is immediately allocated to physical gold bullion stored safely in Swiss vaults with a 30% wholesale discount.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} />
+            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>AI-Driven Yield Execution (50%)</strong>
               <span style={spanStyle}>The remaining half is placed in XAUT/USDC active yield pools, targeting a consistent 7-10% monthly interest.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Physical Gold Delivery</strong>
               <span style={spanStyle}>Keep your holdings digital, or request secure physical delivery of your gold bars directly to your doorstep after 12 months.</span>
@@ -188,25 +188,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 7: Everyday Utility (Card & Flash)
       <SlideContainer key="slide-7">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <CreditCard size={36} /> Everyday Utility: Aurum Card & Aurum Flash
+          <CreditCard size={36} aria-hidden="true" /> Everyday Utility: Aurum Card & Aurum Flash
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} />
+            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Instant Fiat-Crypto Conversion</strong>
               <span style={spanStyle}>Use the Aurum Mastercard to spend crypto balances anywhere Mastercard is accepted worldwide with zero checkout friction.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Zap size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Zap size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Zero-Capital DeFi Arbitrage</strong>
               <span style={spanStyle}>Aurum Flash licenses allow advanced users to tap into flash loan capital to execute multi-step arbitrage loops instantly.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Layers size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} />
+            <Layers size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Premium Cashbacks & Tiers</strong>
               <span style={spanStyle}>Unlock premium card tiers (Nova, Imperium, World Elite) for increasing cashbacks, lounge benefits, and high limits.</span>
@@ -218,25 +218,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 8: The Partner Program (Organization)
       <SlideContainer key="slide-8">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Users size={36} /> The Partner Program: Unlock Generational Revenue
+          <Users size={36} aria-hidden="true" /> The Partner Program: Unlock Generational Revenue
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Coins size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Instant Direct Commissions</strong>
               <span style={spanStyle}>Earn up to 18.5% immediately on all platform license activations and deposit package purchases via your invite link.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} />
+            <TrendingUp size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Daily Profitshare Overrides</strong>
               <span style={spanStyle}>Receive up to 30% daily overrides on the automated trading profits generated by your direct and structural clients.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Award size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} />
+            <Award size={28} style={{ ...iconStyle, color: 'var(--accent-purple)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Rank-Up & Shareholder Bonuses</strong>
               <span style={spanStyle}>Unlock lump-sum cash bonuses up to 3,000,000 USDT and quarterly shares in the global Shareholder Pool (up to 3.125%).</span>
@@ -248,25 +248,25 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 9: Legacy Tiers & Career Growth
       <SlideContainer key="slide-9">
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <Award size={36} /> 15 Levels of Career Progression: From Nova to Alpha
+          <Award size={36} aria-hidden="true" /> 15 Levels of Career Progression: From Nova to Alpha
         </h2>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           <li style={liStyle}>
-            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} />
+            <CheckCircle2 size={28} style={{ ...iconStyle, color: '#10b981' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Structured Legacy Volume (LV)</strong>
               <span style={spanStyle}>Advance ranks based on total team sales volume. Each rank unlocks deeper commissions and profit differentials.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Users size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} />
+            <Users size={28} style={{ ...iconStyle, color: 'var(--accent-blue)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Generous Differential Overrides</strong>
               <span style={spanStyle}>Earn the percentage difference between your rank level and your downline partners across your entire structure, endlessly deep.</span>
             </div>
           </li>
           <li style={liStyle}>
-            <Sparkles size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} />
+            <Sparkles size={28} style={{ ...iconStyle, color: 'var(--accent-gold)' }} aria-hidden="true" />
             <div>
               <strong style={strongStyle}>Global Masters Retreats & masterclasses</strong>
               <span style={spanStyle}>Qualify for fully funded luxury retreats, private mastermind summits, and direct strategy access with corporate executives.</span>
@@ -274,7 +274,7 @@ const PresentationViewer = ({ onExit }) => {
           </li>
         </ul>
       </SlideContainer>,
-
+      
       // Slide 10: How to Get Started (Call to Action)
       <SlideContainer key="slide-10" className="text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)' }}>
@@ -302,14 +302,14 @@ const PresentationViewer = ({ onExit }) => {
       // Slide 11: Webinar Objections (Q&A)
       <SlideContainer key="slide-11" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <HelpCircle size={36} /> (Q&A)
+          <HelpCircle size={36} aria-hidden="true" /> (Q&A)
         </h2>
         <div className="qa-grid">
           
           {/* Objection 1 */}
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', padding: '1.75rem', borderRadius: '16px', display: 'flex', gap: '1.25rem' }}>
             <div style={{ background: 'rgba(96,165,250,0.1)', color: 'var(--accent-blue)', padding: '0.75rem', borderRadius: '12px', height: 'fit-content' }}>
-              <Unlock size={24} />
+              <Unlock size={24} aria-hidden="true" />
             </div>
             <div>
               <h3 style={{ fontSize: '1.45rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: '600' }}>Is my capital locked up?</h3>
@@ -318,11 +318,11 @@ const PresentationViewer = ({ onExit }) => {
               </p>
             </div>
           </div>
-
+ 
           {/* Objection 2 */}
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', padding: '1.75rem', borderRadius: '16px', display: 'flex', gap: '1.25rem' }}>
             <div style={{ background: 'rgba(16,185,129,0.1)', color: '#10b981', padding: '0.75rem', borderRadius: '12px', height: 'fit-content' }}>
-              <ShieldCheck size={24} />
+              <ShieldCheck size={24} aria-hidden="true" />
             </div>
             <div>
               <h3 style={{ fontSize: '1.45rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: '600' }}>Is this safe/regulated?</h3>
@@ -331,11 +331,11 @@ const PresentationViewer = ({ onExit }) => {
               </p>
             </div>
           </div>
-
+ 
           {/* Objection 3 */}
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', padding: '1.75rem', borderRadius: '16px', display: 'flex', gap: '1.25rem' }}>
             <div style={{ background: 'rgba(139,92,246,0.1)', color: 'var(--accent-purple)', padding: '0.75rem', borderRadius: '12px', height: 'fit-content' }}>
-              <GraduationCap size={24} />
+              <GraduationCap size={24} aria-hidden="true" />
             </div>
             <div>
               <h3 style={{ fontSize: '1.45rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: '600' }}>Do I need trading experience?</h3>
@@ -344,11 +344,11 @@ const PresentationViewer = ({ onExit }) => {
               </p>
             </div>
           </div>
-
+ 
           {/* Objection 4 */}
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', padding: '1.75rem', borderRadius: '16px', display: 'flex', gap: '1.25rem' }}>
             <div style={{ background: 'rgba(251,191,36,0.1)', color: 'var(--accent-gold)', padding: '0.75rem', borderRadius: '12px', height: 'fit-content' }}>
-              <Coins size={24} />
+              <Coins size={24} aria-hidden="true" />
             </div>
             <div>
               <h3 style={{ fontSize: '1.45rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: '600' }}>Where does the gold come from?</h3>
@@ -357,21 +357,21 @@ const PresentationViewer = ({ onExit }) => {
               </p>
             </div>
           </div>
-
+ 
         </div>
       </SlideContainer>
     ];
   }, []);
-
-
+ 
+ 
   const goToNextSlide = useCallback(() => {
     setCurrentSlideIndex((prev) => (prev < slides.length - 1 ? prev + 1 : prev));
   }, [slides.length]);
-
+ 
   const goToPrevSlide = useCallback(() => {
     setCurrentSlideIndex((prev) => (prev > 0 ? prev - 1 : prev));
   }, []);
-
+ 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -383,11 +383,11 @@ const PresentationViewer = ({ onExit }) => {
         onExit();
       }
     };
-
+ 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToNextSlide, goToPrevSlide, onExit]);
-
+ 
   return (
     <div className="presentation-container">
       {/* Ambient Background Glows */}
@@ -398,26 +398,26 @@ const PresentationViewer = ({ onExit }) => {
         onClick={onExit}
         className="exit-presentation-btn"
       >
-        <X size={20} /> Exit Presentation
+        <X size={20} aria-hidden="true" /> Exit Presentation
       </button>
-
+ 
       {/* Slides Area */}
       <div className="slide-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2rem', height: 'auto', minHeight: 'calc(100vh - 120px)', padding: '2rem 1rem' }}>
         <AnimatePresence mode="wait">
           {slides[currentSlideIndex]}
         </AnimatePresence>
-
+ 
         {/* Next Slide Button below slides */}
         {currentSlideIndex < slides.length - 1 && (
           <button
             onClick={goToNextSlide}
             className="next-slide-btn-below"
           >
-            Next Slide <ChevronRight size={20} />
+            Next Slide <ChevronRight size={20} aria-hidden="true" />
           </button>
         )}
       </div>
-
+ 
       {/* Controls */}
       <div className="presentation-controls">
         <button 
@@ -426,7 +426,7 @@ const PresentationViewer = ({ onExit }) => {
           disabled={currentSlideIndex === 0}
           aria-label="Previous Slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={24} aria-hidden="true" />
         </button>
         
         <span className="progress-indicator">
@@ -439,7 +439,7 @@ const PresentationViewer = ({ onExit }) => {
           disabled={currentSlideIndex === slides.length - 1}
           aria-label="Next Slide"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={24} aria-hidden="true" />
         </button>
       </div>
     </div>
