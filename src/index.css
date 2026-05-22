@@ -354,11 +354,14 @@ h1, h2, h3 { color: var(--text-primary); }
 
 .slide-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  gap: 2rem;
+  height: auto;
+  min-height: calc(100vh - 120px);
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 1rem 8rem 1rem; /* 8rem bottom padding avoids overlap with absolute controls */
   z-index: 1; /* Render above background glows */
 }
 

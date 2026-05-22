@@ -402,7 +402,7 @@ const PresentationViewer = ({ onExit }) => {
       </button>
  
       {/* Slides Area */}
-      <div className="slide-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2rem', height: 'auto', minHeight: 'calc(100vh - 120px)', padding: '2rem 1rem' }}>
+      <div className="slide-content">
         <AnimatePresence mode="wait">
           {slides[currentSlideIndex]}
         </AnimatePresence>
@@ -432,15 +432,6 @@ const PresentationViewer = ({ onExit }) => {
         <span className="progress-indicator">
           {String(currentSlideIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
         </span>
-        
-        <button 
-          className="control-btn" 
-          onClick={goToNextSlide}
-          disabled={currentSlideIndex === slides.length - 1}
-          aria-label="Next Slide"
-        >
-          <ChevronRight size={24} aria-hidden="true" />
-        </button>
       </div>
     </div>
   );
