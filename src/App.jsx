@@ -7,11 +7,18 @@ import './App.css';
 function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem('aurum-theme') || 'aurum');
+  const [textScale, setTextScale] = useState(() => localStorage.getItem('aurum-text-scale') || 'medium');
+  const [glowEnabled, setGlowEnabled] = useState(() => {
+    const saved = localStorage.getItem('aurum-glow-enabled');
+    return saved === null ? true : saved === 'true';
+  });
 
   React.useEffect(() => {
-    document.body.className = `theme-${theme}`;
+    document.body.className = `theme-${theme} text-scale-${textScale} ${glowEnabled ? '' : 'glow-disabled'}`;
     localStorage.setItem('aurum-theme', theme);
-  }, [theme]);
+    localStorage.setItem('aurum-text-scale', textScale);
+    localStorage.setItem('aurum-glow-enabled', String(glowEnabled));
+  }, [theme, textScale, glowEnabled]);
 
   return (
     <>
@@ -52,11 +59,19 @@ function App() {
           onExit={() => setIsPresentationMode(false)} 
           theme={theme}
           setTheme={setTheme}
+          textScale={textScale}
+          setTextScale={setTextScale}
+          glowEnabled={glowEnabled}
+          setGlowEnabled={setGlowEnabled}
         />
       ) : (
         <CourseLayout 
           theme={theme}
           setTheme={setTheme}
+          textScale={textScale}
+          setTextScale={setTextScale}
+          glowEnabled={glowEnabled}
+          setGlowEnabled={setGlowEnabled}
         />
       )}
     </>

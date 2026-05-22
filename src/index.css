@@ -15,6 +15,24 @@
   --glass-border: rgba(255, 255, 255, 0.1);
   --theme-glow-1: rgba(139, 92, 246, 0.15);
   --theme-glow-2: rgba(251, 191, 36, 0.1);
+  --text-scale: 1;
+}
+
+body.text-scale-small {
+  --text-scale: 0.85;
+}
+
+body.text-scale-medium {
+  --text-scale: 1;
+}
+
+body.text-scale-large {
+  --text-scale: 1.15;
+}
+
+body.glow-disabled {
+  --theme-glow-1: transparent !important;
+  --theme-glow-2: transparent !important;
 }
 
 body.theme-emerald {
@@ -348,5 +366,291 @@ h1, h2, h3 { color: var(--text-primary); }
   -webkit-text-fill-color: transparent;
 }
 
+/* Preferences - Text Scale Cascades */
+.markdown-content p,
+.markdown-content li,
+.markdown-content blockquote p {
+  font-size: calc(1.15rem * var(--text-scale, 1)) !important;
+  transition: font-size 0.3s ease;
+}
 
+.markdown-content h3 {
+  font-size: calc(1.6rem * var(--text-scale, 1)) !important;
+  transition: font-size 0.3s ease;
+}
 
+.markdown-content h4 {
+  font-size: calc(1.3rem * var(--text-scale, 1)) !important;
+  transition: font-size 0.3s ease;
+}
+
+/* --- Layout Sizing & Structure --- */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.sidebar-container {
+  width: 320px;
+  height: 100vh;
+  background: rgba(10, 10, 15, 0.95);
+  border-right: 1px solid var(--glass-border);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-container {
+  flex: 1;
+  margin-left: 320px;
+  padding: 3rem 2rem;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+/* Mobile top bar (hidden by default) */
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 90;
+  align-items: center;
+  padding: 0 1.25rem;
+  gap: 1rem;
+}
+
+.mobile-menu-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+}
+
+/* Slide container sizing */
+.slide-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 5rem;
+  margin: 0 auto;
+}
+
+/* Presentation top bar */
+.presentation-top-bar {
+  position: absolute;
+  top: 2.2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1001;
+}
+
+.presentation-top-bar .exit-presentation-btn {
+  position: static;
+}
+
+/* Grids inside presentation slides */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Presentation specific list styles overrides */
+.slide-content li {
+  font-size: calc(1.8rem * var(--text-scale, 1));
+  margin-bottom: 2.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.slide-content li svg {
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.slide-content li strong {
+  display: block;
+  font-size: calc(1.85rem * var(--text-scale, 1));
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.slide-content li span {
+  font-size: calc(1.35rem * var(--text-scale, 1));
+  color: var(--text-secondary);
+  font-weight: 300;
+  display: block;
+  line-height: 1.5;
+}
+
+/* --- Mobile Responsiveness (max-width: 768px) --- */
+@media (max-width: 768px) {
+  /* Course Layout mobile updates */
+  .mobile-header {
+    display: flex;
+  }
+  
+  .sidebar-container {
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+  
+  .sidebar-container.open {
+    transform: translateX(0);
+  }
+  
+  .content-container {
+    margin-left: 0;
+    padding: 6rem 1.25rem 3rem 1.25rem; /* Space for fixed mobile header */
+  }
+  
+  .course-title-header h1 {
+    font-size: 2rem !important;
+  }
+
+  .topic-container h2 {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Presentation Viewer mobile overrides */
+  .presentation-top-bar {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .exit-presentation-btn {
+    top: auto;
+    right: auto;
+    position: relative;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .slide-container {
+    padding: 2.5rem 1.5rem !important;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .presentation-container h1 {
+    font-size: calc(2rem * var(--text-scale, 1)) !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .presentation-container h2 {
+    font-size: calc(1.35rem * var(--text-scale, 1)) !important;
+    margin-bottom: 1.5rem !important;
+    gap: 0.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .presentation-container h2 svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  .presentation-container p {
+    font-size: calc(1.05rem * var(--text-scale, 1)) !important;
+  }
+  
+  .slide-content li {
+    font-size: calc(1.15rem * var(--text-scale, 1));
+    margin-bottom: 1.25rem;
+    gap: 0.75rem;
+  }
+  
+  .slide-content li svg {
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: 0.15rem;
+  }
+  
+  .slide-content li strong {
+    font-size: calc(1.2rem * var(--text-scale, 1));
+  }
+  
+  .slide-content li span {
+    font-size: calc(0.95rem * var(--text-scale, 1));
+  }
+  
+  .cta-grid, .qa-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .cta-grid div, .qa-grid div {
+    padding: 1.25rem 1rem !important;
+  }
+  
+  .presentation-controls {
+    bottom: 1.5rem;
+    padding: 0.5rem 1.25rem;
+    gap: 1rem;
+  }
+  
+  .control-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .progress-indicator {
+    font-size: 0.95rem;
+    min-width: 50px;
+  }
+}

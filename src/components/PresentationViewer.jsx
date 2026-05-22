@@ -9,37 +9,12 @@ import { AnimatePresence } from 'framer-motion';
 import SlideContainer from './SlideContainer';
 import ThemePicker from './ThemePicker';
 
-// Style objects for unified slide layouts
-const liStyle = {
-  fontSize: '1.8rem',
-  marginBottom: '2.2rem',
-  display: 'flex',
-  alignItems: 'flex-start',
-  gap: '1.5rem',
-  lineHeight: 1.4,
-  color: 'var(--text-primary)'
-};
-
-const iconStyle = {
-  marginTop: '0.3rem',
-  flexShrink: 0
-};
-
-const strongStyle = {
-  display: 'block',
-  fontSize: '1.85rem',
-  color: 'var(--text-primary)',
-  marginBottom: '0.25rem',
-  fontWeight: '600'
-};
-
-const spanStyle = {
-  fontSize: '1.35rem',
-  color: 'var(--text-secondary)',
-  fontWeight: '300',
-  display: 'block',
-  lineHeight: 1.5
-};
+// Style objects are now defined in CSS (index.css) to support responsive scaling.
+// Empty definitions kept to avoid breaking existing slide JSX references.
+const liStyle = {};
+const iconStyle = { flexShrink: 0 };
+const strongStyle = {};
+const spanStyle = {};
 
 const PresentationViewer = ({ onExit, theme, setTheme }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -306,7 +281,7 @@ const PresentationViewer = ({ onExit, theme, setTheme }) => {
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)' }}>
           3 Simple Steps to Activate Your Wealth Engine
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', width: '100%', marginTop: '2rem' }}>
+        <div className="cta-grid">
           <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)', padding: '2rem 1.5rem', borderRadius: '16px' }}>
             <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(96,165,250,0.1)', color: 'var(--accent-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1.5rem' }}>1</div>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '1.25rem', color: 'var(--text-primary)' }}>Get Invite Code</h3>
@@ -330,7 +305,7 @@ const PresentationViewer = ({ onExit, theme, setTheme }) => {
         <h2 style={{ fontSize: '3rem', marginBottom: '2.5rem', color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <HelpCircle size={36} /> (Q&A)
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', width: '100%' }}>
+        <div className="qa-grid">
           
           {/* Objection 1 */}
           <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--glass-border)', padding: '1.75rem', borderRadius: '16px', display: 'flex', gap: '1.25rem' }}>
@@ -419,18 +394,16 @@ const PresentationViewer = ({ onExit, theme, setTheme }) => {
       {/* Ambient Background Glows */}
       <div className="app-background" style={{ zIndex: 0 }}></div>
       
-      {/* Theme Picker floating top-left */}
-      <div style={{ position: 'absolute', top: '2.2rem', left: '2rem', zIndex: 1001 }}>
+      {/* Top Controls Bar */}
+      <div className="presentation-top-bar">
         <ThemePicker currentTheme={theme} onChangeTheme={setTheme} isDarkBackdrop={true} />
+        <button 
+          onClick={onExit}
+          className="exit-presentation-btn"
+        >
+          <X size={20} /> Exit Presentation
+        </button>
       </div>
-
-      {/* Exit Button */}
-      <button 
-        onClick={onExit}
-        className="exit-presentation-btn"
-      >
-        <X size={20} /> Exit Presentation
-      </button>
 
       {/* Slides Area */}
       <div className="slide-content">

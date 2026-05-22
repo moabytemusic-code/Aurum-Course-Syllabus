@@ -14,8 +14,8 @@ const SlideContainer = ({ children, className = '', style = {} }) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className={`glass-panel w-full ${className}`}
-      style={{ width: '100%', maxWidth: '1100px', padding: '5rem', margin: '0 auto', ...style }}
+      className={`glass-panel w-full slide-container ${className}`}
+      style={{ ...style }}
     >
       {children}
     </motion.div>
