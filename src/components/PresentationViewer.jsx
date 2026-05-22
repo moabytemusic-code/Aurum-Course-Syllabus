@@ -406,16 +406,6 @@ const PresentationViewer = ({ onExit }) => {
         <AnimatePresence mode="wait">
           {slides[currentSlideIndex]}
         </AnimatePresence>
- 
-        {/* Next Slide Button below slides */}
-        {currentSlideIndex < slides.length - 1 && (
-          <button
-            onClick={goToNextSlide}
-            className="next-slide-btn-below"
-          >
-            Next Slide <ChevronRight size={20} aria-hidden="true" />
-          </button>
-        )}
       </div>
  
       {/* Controls */}
@@ -432,6 +422,15 @@ const PresentationViewer = ({ onExit }) => {
         <span className="progress-indicator">
           {String(currentSlideIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
         </span>
+
+        <button 
+          className="next-btn-combined" 
+          onClick={goToNextSlide}
+          disabled={currentSlideIndex === slides.length - 1}
+          aria-label="Next Slide"
+        >
+          Next Slide <ChevronRight size={18} aria-hidden="true" />
+        </button>
       </div>
     </div>
   );
