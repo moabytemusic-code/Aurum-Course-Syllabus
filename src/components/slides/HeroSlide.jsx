@@ -1,4 +1,3 @@
-import React from 'react';
 import SlideContainer from '../SlideContainer';
 
 const HeroSlide = () => {

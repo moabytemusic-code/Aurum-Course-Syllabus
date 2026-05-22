@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
 
 // Initialize Mermaid with custom styles matching the Aurum theme

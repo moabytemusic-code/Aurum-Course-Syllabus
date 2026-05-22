@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SidebarSyllabus from './SidebarSyllabus';
 import CourseTopic from './CourseTopic';
 import { courseModules } from '../data/courseData';

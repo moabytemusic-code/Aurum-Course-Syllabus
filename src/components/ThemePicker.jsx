@@ -1,10 +1,11 @@
-import React from 'react';
+
 
 const themes = [
   { id: 'aurum', name: 'Aurum Premium', color1: '#fbbf24', color2: '#8b5cf6' },
   { id: 'emerald', name: 'Cyber Emerald', color1: '#10b981', color2: '#06b6d4' },
   { id: 'ruby', name: 'Obsidian Ruby', color1: '#ef4444', color2: '#ec4899' },
   { id: 'amethyst', name: 'Mystic Amethyst', color1: '#d946ef', color2: '#6366f1' },
+  { id: 'slate', name: 'Cool Slate', color1: '#94a3b8', color2: '#475569' },
 ];
 
 const ThemePicker = ({ currentTheme, onChangeTheme, isDarkBackdrop = false }) => {

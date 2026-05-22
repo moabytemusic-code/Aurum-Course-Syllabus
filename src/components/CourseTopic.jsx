@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   ChevronDown, ChevronUp, BookOpen, Layers, Link as LinkIcon, Info,
-  Sparkles, ShieldCheck, Zap, TrendingUp, Key, Coins, CheckCircle2 
+  ShieldCheck, Zap, TrendingUp, Key, Coins, CheckCircle2 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -34,7 +34,7 @@ const CourseTopic = ({ topic, onSelectModule }) => {
   // Custom components for Markdown to support Tooltips, Callouts, and Mermaid
   const MarkdownComponents = {
     // Intercept links to create Info Bubbles
-    a: ({ node, ...props }) => {
+    a: ({ node: _node, ...props }) => {
       const href = props.href || '';
       if (href.startsWith('#tooltip:')) {
         const tooltipText = decodeURIComponent(href.replace('#tooltip:', ''));
@@ -53,7 +53,7 @@ const CourseTopic = ({ topic, onSelectModule }) => {
       return <a {...props} style={{ color: 'var(--accent-blue)', textDecoration: 'none' }} />;
     },
     // Intercept code blocks to render Mermaid diagrams
-    code: ({ node, className, children, ...props }) => {
+    code: ({ node: _node, className, children, ...props }) => {
       const match = /language-mermaid/.exec(className || '');
       if (match) {
         return <Mermaid chart={String(children).replace(/\n$/, '')} />;

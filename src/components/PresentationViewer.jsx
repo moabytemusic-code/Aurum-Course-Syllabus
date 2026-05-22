@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { 
   ChevronLeft, ChevronRight, X, Sparkles, ShieldCheck, Zap, 
   TrendingUp, Key, Coins, CheckCircle2, AlertCircle, TrendingDown,
@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 import SlideContainer from './SlideContainer';
-import ThemePicker from './ThemePicker';
 
 // Style objects are now defined in CSS (index.css) to support responsive scaling.
 // Empty definitions kept to avoid breaking existing slide JSX references.
@@ -16,7 +15,7 @@ const iconStyle = { flexShrink: 0 };
 const strongStyle = {};
 const spanStyle = {};
 
-const PresentationViewer = ({ onExit, theme, setTheme }) => {
+const PresentationViewer = ({ onExit }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   // Define static high-impact Webinar presentation slides
@@ -394,22 +393,29 @@ const PresentationViewer = ({ onExit, theme, setTheme }) => {
       {/* Ambient Background Glows */}
       <div className="app-background" style={{ zIndex: 0 }}></div>
       
-      {/* Top Controls Bar */}
-      <div className="presentation-top-bar">
-        <ThemePicker currentTheme={theme} onChangeTheme={setTheme} isDarkBackdrop={true} />
-        <button 
-          onClick={onExit}
-          className="exit-presentation-btn"
-        >
-          <X size={20} /> Exit Presentation
-        </button>
-      </div>
+      {/* Exit Button - Lower Right (Styled in index.css) */}
+      <button 
+        onClick={onExit}
+        className="exit-presentation-btn"
+      >
+        <X size={20} /> Exit Presentation
+      </button>
 
       {/* Slides Area */}
-      <div className="slide-content">
+      <div className="slide-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2rem', height: 'auto', minHeight: 'calc(100vh - 120px)', padding: '2rem 1rem' }}>
         <AnimatePresence mode="wait">
           {slides[currentSlideIndex]}
         </AnimatePresence>
+
+        {/* Next Slide Button below slides */}
+        {currentSlideIndex < slides.length - 1 && (
+          <button
+            onClick={goToNextSlide}
+            className="next-slide-btn-below"
+          >
+            Next Slide <ChevronRight size={20} />
+          </button>
+        )}
       </div>
 
       {/* Controls */}
