@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a1428;
+  --color-card: #13223f;
+  --color-accent-gold: #e8c670;
+  --color-gold-dark: #d4af37;
+  --color-text-primary: #f0ede6;
+  --color-text-secondary: #a8b2c8;
+  
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
+  
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #0a1428;
+    color: #f0ede6;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+}
+
+/* Custom Tooltip Styling */
+.info-bubble {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  color: #e8c670;
+  border-bottom: 1px dashed #e8c670;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.info-bubble:hover {
+  color: #d4af37;
+  border-bottom-color: #d4af37;
+}
+
+.info-bubble .tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #13223f;
+  color: #f0ede6;
+  text-align: left;
+  border-radius: 8px;
+  padding: 1rem;
+  position: absolute;
+  z-index: 100;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  border: 1px solid rgba(232, 198, 112, 0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.info-bubble .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(232, 198, 112, 0.2) transparent transparent transparent;
+}
+
+.info-bubble:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1428;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #13223f;
+  border: 1px solid rgba(232, 198, 112, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 198, 112, 0.3);
+}

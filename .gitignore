@@ -24,3 +24,8 @@ scratch/venv
 *.njsproj
 *.sln
 *.sw?
+
+# Next.js build output
+.next
+out
+
