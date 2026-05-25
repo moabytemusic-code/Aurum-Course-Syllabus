@@ -13,6 +13,7 @@ import Hero from "../components/Hero";
 import BackToTop from "../components/BackToTop";
 import Mermaid from "../components/Mermaid";
 import PresentationViewer from "../components/PresentationViewer";
+import ChatWidgetEmbed from "../components/ChatWidgetEmbed";
 
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
@@ -563,6 +564,9 @@ export default function ClientPage({ initialCourseModules = [] }) {
 
       {/* Floating Back to Top Button */}
       <BackToTop />
+      
+      {/* AI Chatbot Widget */}
+      <ChatWidgetEmbed />
     </div>
   );
 }
