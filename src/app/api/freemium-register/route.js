@@ -43,6 +43,34 @@ export async function POST(req) {
       return NextResponse.json({ success: false, error: 'Failed to create account.' }, { status: 500 });
     }
 
+    // Add contact to Brevo and opt into list
+    if (process.env.BREVO_API_KEY) {
+      try {
+        const brevoListId = parseInt(process.env.BREVO_LIST_ID || '68', 10);
+        await fetch('https://api.brevo.com/v3/contacts', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'api-key': process.env.BREVO_API_KEY
+          },
+          body: JSON.stringify({
+            email: newUser.email,
+            attributes: {
+              FIRSTNAME: first_name || '',
+              VISIT_COUNT: 0
+            },
+            listIds: [brevoListId],
+            updateEnabled: true // update if contact already exists
+          })
+        });
+        console.log(`Brevo contact created/updated for ${newUser.email}`);
+      } catch (brevoErr) {
+        // Non-fatal: log but don't block registration
+        console.error('Brevo contact creation error:', brevoErr.message);
+      }
+    }
+
     // Set freemium session cookie
     const response = NextResponse.json({ success: true });
     response.cookies.set({
