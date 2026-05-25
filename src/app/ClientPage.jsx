@@ -123,7 +123,6 @@ export default function ClientPage({ initialCourseModules = [] }) {
           alt={alt} 
           className="rounded-xl border border-[rgba(232,198,112,0.15)] shadow-2xl max-w-full h-auto transition-transform hover:scale-[1.01]" 
         />
-        {alt && <span className="mt-2 text-xs text-text-secondary italic uppercase tracking-wider">{alt}</span>}
       </div>
     )
   }), []);

@@ -1,18 +1,30 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  // Bypass auth checks in local development for easier testing and developer coding
-  if (process.env.NODE_ENV === "development") {
+  const { pathname } = request.nextUrl;
+
+  // Allow public routes
+  if (
+    pathname === "/register" ||
+    pathname === "/checkout.html" ||
+    pathname.startsWith("/api/freemium-register") ||
+    pathname.startsWith("/api/submit-payment") ||
+    pathname.startsWith("/api/track-visit")
+  ) {
     return NextResponse.next();
   }
 
-  // Read session cookie set by your main Welcometoaurum App
-  const session = request.cookies.get("aurum_partner_session");
+  // Bypass auth checks in local development for easier testing and developer coding
+  if (process.env.NODE_ENV === "development") {
+    // We still allow development but should ideally test the flow too
+    // return NextResponse.next();
+  }
 
-  // If no session exists in production, redirect to login page
-  if (!session) {
+  const partnerSession = request.cookies.get("aurum_partner_session");
+  const freemiumSession = request.cookies.get("aurum_freemium_session");
+
+  if (!partnerSession && !freemiumSession) {
     const loginUrl = new URL("/partner/login", "https://www.welcometoaurum.com");
-    // Pass current path so the login page can redirect the user back after signing in
     loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
   }

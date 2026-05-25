@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurum Education System - Checkout</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --primary: #00ff88;
+            --secondary: #2d8cf0;
+            --text: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.6);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .wallet-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,255,136,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .wallet-box h3 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: var(--primary);
+        }
+        .wallet-box code {
+            display: block;
+            background: #000;
+            padding: 12px;
+            border-radius: 8px;
+            word-break: break-all;
+            color: #fff;
+            font-size: 14px;
+        }
+        form {
+            text-align: left;
+            margin-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text);
+        }
+        input {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: #fff;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(to right, #00ff88, #00cc6a);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upgrade Your Access</h1>
+        <p>Your 10 free visits to the Aurum Education Portal have concluded. To continue accessing the system and become an Official Partner, please complete your payment.</p>
+        
+        <div class="wallet-box">
+            <h3>USDT (TRC20) Address</h3>
+            <code>TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
+        </div>
+        <div class="wallet-box">
+            <h3>USDC (ERC20) Address</h3>
+            <code>0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
+        </div>
+
+        <form id="payment-form">
+            <label for="tx_hash">Transaction Hash (TxID)</label>
+            <input type="text" id="tx_hash" placeholder="Enter your transaction hash here" required>
+            <button type="submit" id="submit-btn">Verify Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const txHash = document.getElementById('tx_hash').value;
+            const btn = document.getElementById('submit-btn');
+            
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            try {
+                // Fetch the freemium session cookie (it is httpOnly, so we can't read it via JS, but we can call an API endpoint)
+                const res = await fetch('/api/submit-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ tx_hash: txHash })
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    btn.textContent = 'Submitted Successfully!';
+                    btn.style.background = '#2d8cf0';
+                    alert('Your payment is under review. Your account will be upgraded shortly.');
+                } else {
+                    throw new Error(data.error || 'Failed to submit payment');
+                }
+            } catch (err) {
+                alert(err.message);
+                btn.disabled = false;
+                btn.textContent = 'Verify Payment';
+            }
+        });
+    </script>
+</body>
+</html>
