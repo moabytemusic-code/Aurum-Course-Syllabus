@@ -154,7 +154,7 @@
 
             try {
                 // Fetch the freemium session cookie (it is httpOnly, so we can't read it via JS, but we can call an API endpoint)
-                const res = await fetch('/api/submit-payment', {
+                const res = await fetch('/syllabus/api/submit-payment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ tx_hash: txHash })

@@ -26,7 +26,7 @@ function RegisterForm() {
     setError('');
 
     try {
-      const res = await fetch('/api/freemium-register', {
+      const res = await fetch('/syllabus/api/freemium-register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, first_name: firstName })
