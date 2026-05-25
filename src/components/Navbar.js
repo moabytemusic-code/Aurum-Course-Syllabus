@@ -40,10 +40,10 @@ export default function Navbar({ onEnterPresentation }) {
   };
 
   const pdfFiles = [
-    { name: "Platform Guide", url: "/English. Guide to Using the Aurum Platform .pdf" },
-    { name: "Partner Program", url: "/English.AURUM Partner Program_copy.pdf" },
-    { name: "Aurum Token", url: "/english_Aurum_Token.pdf" },
-    { name: "Guest Presentation", url: "/English. Aurum Guest Presentation.pdf" }
+    { name: "Platform Guide", url: "https://www.welcometoaurum.com/English. Guide to Using the Aurum Platform .pdf" },
+    { name: "Partner Program", url: "https://www.welcometoaurum.com/English.AURUM Partner Program_copy.pdf" },
+    { name: "Aurum Token", url: "https://www.welcometoaurum.com/english_Aurum_Token.pdf" },
+    { name: "Guest Presentation", url: "https://www.welcometoaurum.com/English. Aurum Guest Presentation.pdf" }
   ];
 
   return (
