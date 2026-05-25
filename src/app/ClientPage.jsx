@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import { 
   BookOpen, Layers, Info, CheckCircle2, ShieldCheck, Zap, 
   TrendingUp, Key, Coins, Search, ArrowRight, UserCheck, HelpCircle
@@ -330,7 +331,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
                             {expandedTopicId === topic.id && (
                               <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
                                 <div className="markdown-content">
-                                  <ReactMarkdown components={MarkdownComponents}>
+                                  <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                                     {topic.deepDive}
                                   </ReactMarkdown>
                                 </div>
@@ -404,7 +405,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
                             {expandedTopicId === topic.id && (
                               <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
                                 <div className="markdown-content">
-                                  <ReactMarkdown components={MarkdownComponents}>
+                                  <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                                     {topic.deepDive}
                                   </ReactMarkdown>
                                 </div>
@@ -484,7 +485,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
                 {expandedTopicId === topic.id && (
                   <div className="col-span-full border-t border-accent-gold/20 p-6 bg-background/95 overflow-hidden animate-in slide-in-from-top duration-300">
                     <div className="markdown-content text-left text-sm max-w-none">
-                      <ReactMarkdown components={MarkdownComponents}>
+                      <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                         {topic.deepDive}
                       </ReactMarkdown>
                     </div>
