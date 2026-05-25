@@ -1,5 +1,7 @@
 import ClientPage from "./ClientPage";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   // Fetch the syllabus from the Chatbot API (Server-Side)
   // We use NEXT_PUBLIC_CHATBOT_URL if available, otherwise default to the deployed Vercel URL
