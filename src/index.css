@@ -115,6 +115,38 @@ body.theme-slate {
   --theme-glow-2: rgba(56, 189, 248, 0.1);
 }
 
+body.theme-sapphire {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --text-primary: #f0f9ff;
+  --text-secondary: #94a3b8;
+  --accent-gold: #38bdf8;
+  --accent-gold-glow: rgba(56, 189, 248, 0.2);
+  --accent-purple: #818cf8;
+  --accent-blue: #0ea5e9;
+  
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(56, 189, 248, 0.15);
+  --theme-glow-1: rgba(129, 140, 248, 0.15);
+  --theme-glow-2: rgba(56, 189, 248, 0.1);
+}
+
+body.theme-obsidian {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --text-primary: #fafafa;
+  --text-secondary: #a3a3a3;
+  --accent-gold: #fbbf24;
+  --accent-gold-glow: rgba(251, 191, 36, 0.2);
+  --accent-purple: #d97706;
+  --accent-blue: #78350f;
+  
+  --glass-bg: rgba(23, 23, 23, 0.7);
+  --glass-border: rgba(251, 191, 36, 0.15);
+  --theme-glow-1: rgba(217, 119, 6, 0.15);
+  --theme-glow-2: rgba(251, 191, 36, 0.1);
+}
+
 
 
 body.presentation-mode {

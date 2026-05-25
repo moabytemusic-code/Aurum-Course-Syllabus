@@ -73,23 +73,25 @@ export default function Navbar({ onEnterPresentation }) {
             <Button
               onClick={onEnterPresentation}
               variant="outline"
-              className="flex items-center gap-2 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold"
+              size="sm"
+              className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold text-xs h-8 px-3"
             >
-              <MonitorPlay size={18} />
+              <MonitorPlay size={14} />
               Presentation
             </Button>
 
             {/* Settings Toggler */}
             <div className="relative">
               <Button 
-                variant="outline" 
-                className="flex items-center gap-2 border-[rgba(232,198,112,0.2)] text-text-secondary hover:text-accent-gold hover:border-accent-gold"
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-text-secondary hover:text-accent-gold hover:border-accent-gold text-xs h-8 px-3"
                 onClick={() => {
                   setIsSettingsOpen(!isSettingsOpen);
                   setIsDropdownOpen(false);
                 }}
               >
-                <Settings size={18} />
+                <Settings size={14} />
                 Display Settings
               </Button>
 
@@ -109,7 +111,10 @@ export default function Navbar({ onEnterPresentation }) {
                         {[
                           { id: 'slate', name: 'Slate' },
                           { id: 'emerald', name: 'Emerald' },
-                          { id: 'amethyst', name: 'Amethyst' }
+                          { id: 'amethyst', name: 'Amethyst' },
+                          { id: 'sapphire', name: 'Sapphire' },
+                          { id: 'ruby', name: 'Ruby' },
+                          { id: 'obsidian', name: 'Obsidian' }
                         ].map(t => (
                           <button
                             key={t.id}
@@ -157,16 +162,17 @@ export default function Navbar({ onEnterPresentation }) {
             {/* Download Guide PDF */}
             <div className="relative">
               <Button 
-                variant="default" 
-                className="flex items-center gap-2"
+                variant="default"
+                size="sm"
+                className="flex items-center gap-1.5 text-xs h-8 px-3"
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
                   setIsSettingsOpen(false);
                 }}
               >
-                <Download size={18} />
+                <Download size={14} />
                 Download PDF Guides
-                <ChevronDown size={16} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </Button>
 
               {isDropdownOpen && (
@@ -263,8 +269,8 @@ export default function Navbar({ onEnterPresentation }) {
               {/* Theme Settings */}
               <div className="space-y-1.5">
                 <span className="text-[10px] text-text-secondary font-bold block">Theme Color</span>
-                <div className="flex gap-2">
-                  {['slate', 'emerald', 'amethyst'].map(t => (
+                <div className="grid grid-cols-3 gap-2">
+                  {['slate', 'emerald', 'amethyst', 'sapphire', 'ruby', 'obsidian'].map(t => (
                     <button
                       key={t}
                       onClick={() => handleThemeChange(t)}

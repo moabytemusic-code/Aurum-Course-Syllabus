@@ -153,6 +153,39 @@ body.theme-amethyst {
   color: #f9f8ff !important;
 }
 
+body.theme-sapphire {
+  --color-background: #020617;
+  --color-card: #0f172a;
+  --color-accent-gold: #38bdf8;
+  --color-gold-dark: #0284c7;
+  --color-text-primary: #f0f9ff;
+  --color-text-secondary: #94a3b8;
+  background-color: #020617 !important;
+  color: #f0f9ff !important;
+}
+
+body.theme-ruby {
+  --color-background: #170505;
+  --color-card: #2e0909;
+  --color-accent-gold: #f43f5e;
+  --color-gold-dark: #be123c;
+  --color-text-primary: #fff1f2;
+  --color-text-secondary: #fda4af;
+  background-color: #170505 !important;
+  color: #fff1f2 !important;
+}
+
+body.theme-obsidian {
+  --color-background: #09090b;
+  --color-card: #18181b;
+  --color-accent-gold: #fbbf24;
+  --color-gold-dark: #b45309;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #a3a3a3;
+  background-color: #09090b !important;
+  color: #fafafa !important;
+}
+
 /* --- Text Sizing Scaling --- */
 body.text-scale-small {
   font-size: 0.85rem !important;
