@@ -24,12 +24,12 @@ export default function Mermaid({ chart }) {
           securityLevel: "loose",
           fontFamily: "var(--font-sans), sans-serif",
           themeVariables: {
-            background: "#13223F",
+            background: "transparent",
             primaryColor: "#D4AF37", // gold
             primaryTextColor: "#F0EDE6",
             primaryBorderColor: "rgba(232, 198, 112, 0.2)",
             lineColor: "#E8C670", // accent gold
-            secondaryColor: "#13223F",
+            secondaryColor: "transparent",
             tertiaryColor: "#10b981", // green
             actorBorder: "rgba(232, 198, 112, 0.3)",
             actorBkg: "rgba(19, 34, 63, 0.8)",
@@ -82,7 +82,7 @@ export default function Mermaid({ chart }) {
 
   return (
     <div 
-      className="mermaid-svg-container flex justify-center p-8 bg-[#13223F]/40 rounded-2xl border border-[rgba(232,198,112,0.12)] my-8 overflow-x-auto shadow-inner"
+      className="mermaid-svg-container flex justify-center p-8 bg-card/40 rounded-2xl border border-[rgba(232,198,112,0.12)] my-8 overflow-x-auto shadow-inner"
       dangerouslySetInnerHTML={{ __html: svg }} 
     />
   );

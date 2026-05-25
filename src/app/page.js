@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import BackToTop from "../components/BackToTop";
 import Mermaid from "../components/Mermaid";
+import PresentationViewer from "../components/PresentationViewer";
 
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
@@ -45,6 +46,7 @@ export default function Page() {
   const [glossarySearch, setGlossarySearch] = useState("");
   const [activeTab, setActiveTab] = useState("all");
   const [expandedTopicId, setExpandedTopicId] = useState(null);
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
 
   // Markdown custom renderer components
   const MarkdownComponents = useMemo(() => ({
@@ -75,7 +77,7 @@ export default function Page() {
         return <Mermaid chart={String(children).replace(/\n$/, "")} />;
       }
       return (
-        <code className="bg-[#13223F] px-1.5 py-0.5 rounded text-accent-gold border border-accent-gold/15 font-mono text-sm">
+        <code className="bg-card px-1.5 py-0.5 rounded text-accent-gold border border-accent-gold/15 font-mono text-sm">
           {children}
         </code>
       );
@@ -93,7 +95,7 @@ export default function Page() {
         return <>{children}</>;
       }
       return (
-        <pre className="bg-[#13223F]/50 p-6 rounded-2xl border border-[rgba(232,198,112,0.12)] my-6 overflow-x-auto font-mono text-sm text-[#F0EDE6] shadow-inner">
+        <pre className="bg-card/50 p-6 rounded-2xl border border-[rgba(232,198,112,0.12)] my-6 overflow-x-auto font-mono text-sm text-[#F0EDE6] shadow-inner">
           {children}
         </pre>
       );
@@ -162,10 +164,14 @@ export default function Page() {
     setExpandedTopicId(expandedTopicId === id ? null : id);
   };
 
+  if (isPresentationMode) {
+    return <PresentationViewer onExit={() => setIsPresentationMode(false)} />;
+  }
+
   return (
-    <div className="min-h-screen bg-[#0A1428] text-[#F0EDE6] selection:bg-accent-gold/30 selection:text-white">
+    <div className="min-h-screen bg-background text-[#F0EDE6] selection:bg-accent-gold/30 selection:text-white">
       {/* Sticky Top Navbar */}
-      <Navbar />
+      <Navbar onEnterPresentation={() => setIsPresentationMode(true)} />
 
       {/* Hero Header */}
       <Hero />
@@ -197,7 +203,7 @@ export default function Page() {
                 <p className="text-text-secondary leading-relaxed text-base">
                   Welcome to the official education portal for **Aurum**. This syllabus serves as a comprehensive training curriculum to understand our ecosystem of automated algorithms, card systems, staking strategies, and decentralized finance.
                 </p>
-                <div className="bg-[#0A1428]/40 p-6 rounded-2xl border border-[rgba(232,198,112,0.1)]">
+                <div className="bg-background/40 p-6 rounded-2xl border border-[rgba(232,198,112,0.1)]">
                   <h4 className="font-serif text-lg font-bold text-accent-gold mb-3">Key Takeaways</h4>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2.5 text-text-secondary text-sm">
@@ -276,7 +282,7 @@ export default function Page() {
                         
                         {/* Summary / Key takeaways card */}
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                          <Card className="lg:col-span-1 border border-accent-gold/10 bg-[#0A1428]/35 shadow-inner">
+                          <Card className="lg:col-span-1 border border-accent-gold/10 bg-background/35 shadow-inner">
                             <CardHeader className="p-5">
                               <CardTitle className="text-sm uppercase tracking-wider flex items-center gap-1.5 text-text-secondary font-bold font-sans">
                                 <Layers size={16} /> Key Takeaways
@@ -320,7 +326,7 @@ export default function Page() {
                             </div>
 
                             {expandedTopicId === topic.id && (
-                              <div className="mt-4 p-6 bg-[#0A1428]/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
+                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
                                 <div className="markdown-content">
                                   <ReactMarkdown components={MarkdownComponents}>
                                     {topic.deepDive}
@@ -351,7 +357,7 @@ export default function Page() {
                         </h4>
                         
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                          <Card className="lg:col-span-1 border border-accent-gold/10 bg-[#0A1428]/35 shadow-inner">
+                          <Card className="lg:col-span-1 border border-accent-gold/10 bg-background/35 shadow-inner">
                             <CardHeader className="p-5">
                               <CardTitle className="text-sm uppercase tracking-wider flex items-center gap-1.5 text-text-secondary font-bold font-sans">
                                 <Layers size={16} /> Key Takeaways
@@ -394,7 +400,7 @@ export default function Page() {
                             </div>
 
                             {expandedTopicId === topic.id && (
-                              <div className="mt-4 p-6 bg-[#0A1428]/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
+                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
                                 <div className="markdown-content">
                                   <ReactMarkdown components={MarkdownComponents}>
                                     {topic.deepDive}
@@ -474,7 +480,7 @@ export default function Page() {
 
                 {/* Direct Dropdown detailed coursework inside card flow */}
                 {expandedTopicId === topic.id && (
-                  <div className="col-span-full border-t border-accent-gold/20 p-6 bg-[#0A1428]/95 overflow-hidden animate-in slide-in-from-top duration-300">
+                  <div className="col-span-full border-t border-accent-gold/20 p-6 bg-background/95 overflow-hidden animate-in slide-in-from-top duration-300">
                     <div className="markdown-content text-left text-sm max-w-none">
                       <ReactMarkdown components={MarkdownComponents}>
                         {topic.deepDive}
@@ -509,7 +515,7 @@ export default function Page() {
                 <input
                   type="text"
                   placeholder="Search terminology (e.g., Arbitrage, Seed Phrase, Non-Custodial...)"
-                  className="w-full h-11 pl-12 pr-4 rounded-xl border border-[rgba(232,198,112,0.15)] bg-[#0A1428]/70 text-sm text-text-primary placeholder:text-text-secondary focus:border-accent-gold focus:outline-none focus:ring-1 focus:ring-accent-gold transition-all"
+                  className="w-full h-11 pl-12 pr-4 rounded-xl border border-[rgba(232,198,112,0.15)] bg-background/70 text-sm text-text-primary placeholder:text-text-secondary focus:border-accent-gold focus:outline-none focus:ring-1 focus:ring-accent-gold transition-all"
                   value={glossarySearch}
                   onChange={(e) => setGlossarySearch(e.target.value)}
                 />
@@ -527,7 +533,7 @@ export default function Page() {
                         </div>
                       </AccordionTrigger>
                       <AccordionContent className="space-y-4">
-                        <div className="p-4 bg-[#0A1428]/45 border-l border-accent-gold/35 rounded text-sm text-text-secondary">
+                        <div className="p-4 bg-background/45 border-l border-accent-gold/35 rounded text-sm text-text-secondary">
                           <span className="text-xs uppercase tracking-wider text-accent-gold font-bold block mb-1">Definition</span>
                           {term.definition}
                         </div>

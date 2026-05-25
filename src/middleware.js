@@ -7,11 +7,11 @@ export function middleware(request) {
   }
 
   // Read session cookie set by your main Welcometoaurum App
-  const session = request.cookies.get("aurum_session_token");
+  const session = request.cookies.get("aurum_partner_session");
 
   // If no session exists in production, redirect to login page
   if (!session) {
-    const loginUrl = new URL("/login", "https://welcometoaurum.com");
+    const loginUrl = new URL("/partner/login", "https://www.welcometoaurum.com");
     // Pass current path so the login page can redirect the user back after signing in
     loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);

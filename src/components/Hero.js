@@ -3,7 +3,7 @@ import { Badge } from "./ui/badge";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#0A1428] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-background py-24 md:py-32">
       {/* Decorative background glows */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] rounded-full bg-accent-gold/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[35rem] h-[35rem] rounded-full bg-gold-dark/5 blur-[120px] pointer-events-none" />
