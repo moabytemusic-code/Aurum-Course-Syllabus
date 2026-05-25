@@ -119,69 +119,69 @@
   background: rgba(232, 198, 112, 0.3);
 }
 
-/* --- Theme Classes --- */
+/* --- Premium Theme Classes --- */
 body.theme-slate {
-  --color-background: #070c16;
-  --color-card: #111827;
-  --color-accent-gold: #e2c37b;
-  --color-gold-dark: #c5a459;
-  --color-text-primary: #f3f4f6;
-  --color-text-secondary: #9ca3af;
-  background-color: #070c16 !important;
-  color: #f3f4f6 !important;
+  --color-background: #090e17; /* Deep midnight blue-grey */
+  --color-card: #121b2b;
+  --color-accent-gold: #d4af37;
+  --color-gold-dark: #aa8624;
+  --color-text-primary: #f0f4f8;
+  --color-text-secondary: #94a3b8;
+  background-color: #090e17 !important;
+  color: #f0f4f8 !important;
 }
 
 body.theme-emerald {
-  --color-background: #050b08;
-  --color-card: #0d1714;
+  --color-background: #06110c; /* Deep forest noir */
+  --color-card: #0d1f16;
   --color-accent-gold: #10b981;
-  --color-gold-dark: #076b4d;
-  --color-text-primary: #f2fbf7;
-  --color-text-secondary: #9ca3af;
-  background-color: #050b08 !important;
-  color: #f2fbf7 !important;
+  --color-gold-dark: #059669;
+  --color-text-primary: #ecfdf5;
+  --color-text-secondary: #a7f3d0;
+  background-color: #06110c !important;
+  color: #ecfdf5 !important;
 }
 
 body.theme-amethyst {
-  --color-background: #07050f;
-  --color-card: #120e22;
-  --color-accent-gold: #8b5cf6;
-  --color-gold-dark: #5b21b6;
-  --color-text-primary: #f9f8ff;
-  --color-text-secondary: #9ca3af;
-  background-color: #07050f !important;
-  color: #f9f8ff !important;
+  --color-background: #0d0914; /* Deep aubergine */
+  --color-card: #161022;
+  --color-accent-gold: #a78bfa;
+  --color-gold-dark: #7c3aed;
+  --color-text-primary: #faf5ff;
+  --color-text-secondary: #d8b4fe;
+  background-color: #0d0914 !important;
+  color: #faf5ff !important;
 }
 
 body.theme-sapphire {
-  --color-background: #020617;
-  --color-card: #0f172a;
+  --color-background: #040d1a; /* Ocean trench */
+  --color-card: #0a1930;
   --color-accent-gold: #38bdf8;
   --color-gold-dark: #0284c7;
   --color-text-primary: #f0f9ff;
-  --color-text-secondary: #94a3b8;
-  background-color: #020617 !important;
+  --color-text-secondary: #bae6fd;
+  background-color: #040d1a !important;
   color: #f0f9ff !important;
 }
 
 body.theme-ruby {
-  --color-background: #170505;
-  --color-card: #2e0909;
-  --color-accent-gold: #f43f5e;
-  --color-gold-dark: #be123c;
+  --color-background: #140505; /* Black cherry */
+  --color-card: #240a0a;
+  --color-accent-gold: #fb7185;
+  --color-gold-dark: #e11d48;
   --color-text-primary: #fff1f2;
-  --color-text-secondary: #fda4af;
-  background-color: #170505 !important;
+  --color-text-secondary: #fecdd3;
+  background-color: #140505 !important;
   color: #fff1f2 !important;
 }
 
 body.theme-obsidian {
-  --color-background: #09090b;
-  --color-card: #18181b;
+  --color-background: #09090b; /* True sleek black */
+  --color-card: #141417;
   --color-accent-gold: #fbbf24;
-  --color-gold-dark: #b45309;
+  --color-gold-dark: #d97706;
   --color-text-primary: #fafafa;
-  --color-text-secondary: #a3a3a3;
+  --color-text-secondary: #a1a1aa;
   background-color: #09090b !important;
   color: #fafafa !important;
 }
