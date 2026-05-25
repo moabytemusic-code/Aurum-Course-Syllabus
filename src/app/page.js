@@ -8,7 +8,7 @@ export default async function Page() {
   let courseModules = [];
   try {
     const res = await fetch(`${API_URL}/chat/api/kb/syllabus-data`, {
-      next: { revalidate: 60 } // Revalidate cache every 60 seconds (Incremental Static Regeneration)
+      cache: 'no-store' // Fetch fresh data on every request so admin updates appear instantly
     });
     
     if (res.ok) {
