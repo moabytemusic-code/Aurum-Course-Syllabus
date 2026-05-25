@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { courseModules } from '../data/courseData';
 import { Book, Settings, ChevronDown, ChevronUp } from 'lucide-react';
 import ThemePicker from './ThemePicker';
 import { motion, AnimatePresence } from 'framer-motion';

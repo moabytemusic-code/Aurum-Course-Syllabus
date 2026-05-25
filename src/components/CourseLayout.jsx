@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import SidebarSyllabus from './SidebarSyllabus';
 import CourseTopic from './CourseTopic';
-import { courseModules } from '../data/courseData';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu } from 'lucide-react';
 
