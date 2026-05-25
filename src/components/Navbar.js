@@ -59,7 +59,7 @@ export default function Navbar({ onEnterPresentation }) {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8 font-sans text-xs font-bold tracking-widest text-text-secondary uppercase">
-            <a href="/partner/dashboard" className="hover:text-accent-gold transition-colors font-bold text-accent-gold">Dashboard</a>
+            <a href="https://www.welcometoaurum.com/partner/dashboard" className="hover:text-accent-gold transition-colors font-bold text-accent-gold">Dashboard</a>
             <a href="#overview" className="hover:text-accent-gold transition-colors">Overview</a>
             <a href="#curriculum" className="hover:text-accent-gold transition-colors">Curriculum</a>
             <a href="#projects" className="hover:text-accent-gold transition-colors">Products</a>
@@ -212,7 +212,7 @@ export default function Navbar({ onEnterPresentation }) {
         <div className="border-b border-[rgba(232,198,112,0.15)] bg-background md:hidden">
           <div className="space-y-1 px-4 pb-6 pt-3 font-sans text-sm font-bold uppercase tracking-wider text-text-secondary">
             <a
-              href="/partner/dashboard"
+              href="https://www.welcometoaurum.com/partner/dashboard"
               className="block rounded-xl px-4 py-3 hover:bg-card text-accent-gold"
             >
               Dashboard ↗
