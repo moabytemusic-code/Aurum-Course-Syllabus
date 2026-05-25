@@ -58,7 +58,7 @@ export default function Navbar({ onEnterPresentation }) {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8 font-sans text-xs font-bold tracking-widest text-text-secondary uppercase">
+          <div className="hidden md:flex items-center gap-6 font-sans text-[10px] font-bold tracking-widest text-text-secondary uppercase">
             <a href="https://www.welcometoaurum.com/partner/dashboard" className="hover:text-accent-gold transition-colors font-bold text-accent-gold">Dashboard</a>
             <a href="#overview" className="hover:text-accent-gold transition-colors">Overview</a>
             <a href="#curriculum" className="hover:text-accent-gold transition-colors">Curriculum</a>
@@ -74,9 +74,9 @@ export default function Navbar({ onEnterPresentation }) {
               onClick={onEnterPresentation}
               variant="outline"
               size="sm"
-              className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold text-xs h-8 px-3"
+              className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold text-[10px] uppercase font-bold tracking-wider h-7 px-2.5"
             >
-              <MonitorPlay size={14} />
+              <MonitorPlay size={12} />
               Presentation
             </Button>
 
@@ -85,14 +85,14 @@ export default function Navbar({ onEnterPresentation }) {
               <Button 
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-text-secondary hover:text-accent-gold hover:border-accent-gold text-xs h-8 px-3"
+                className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-text-secondary hover:text-accent-gold hover:border-accent-gold text-[10px] uppercase font-bold tracking-wider h-7 px-2.5"
                 onClick={() => {
                   setIsSettingsOpen(!isSettingsOpen);
                   setIsDropdownOpen(false);
                 }}
               >
-                <Settings size={14} />
-                Display Settings
+                <Settings size={12} />
+                Display
               </Button>
 
               {isSettingsOpen && (
@@ -164,15 +164,15 @@ export default function Navbar({ onEnterPresentation }) {
               <Button 
                 variant="default"
                 size="sm"
-                className="flex items-center gap-1.5 text-xs h-8 px-3"
+                className="flex items-center gap-1.5 text-[10px] uppercase font-bold tracking-wider h-7 px-2.5"
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
                   setIsSettingsOpen(false);
                 }}
               >
-                <Download size={14} />
-                Download PDF Guides
-                <ChevronDown size={14} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                <Download size={12} />
+                Guides
+                <ChevronDown size={12} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </Button>
 
               {isDropdownOpen && (
