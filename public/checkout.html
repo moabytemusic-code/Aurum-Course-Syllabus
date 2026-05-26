@@ -50,6 +50,7 @@
             margin-bottom: 16px;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         p {
@@ -173,12 +174,22 @@
             btn.disabled = true;
             btn.textContent = 'Submitting...';
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            const firstName = urlParams.get('firstName');
+            const lastName = urlParams.get('lastName');
+
             try {
-                // Fetch the freemium session cookie (it is httpOnly, so we can't read it via JS, but we can call an API endpoint)
+                // Fetch the freemium session cookie or pass parameters if anonymous
                 const res = await fetch('/syllabus/api/submit-payment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ tx_hash: txHash })
+                    body: JSON.stringify({ 
+                        tx_hash: txHash,
+                        email: email || undefined,
+                        firstName: firstName || undefined,
+                        lastName: lastName || undefined
+                    })
                 });
 
                 const data = await res.json();
