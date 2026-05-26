@@ -134,13 +134,13 @@
                 <option value="ltc">Litecoin (LTC)</option>
                 <option value="usdt-bep20">USDT (BEP-20)</option>
                 <option value="bnb">Binance Coin (BNB)</option>
-                <option value="usdc">USDC (ERC-20)</option>
+                <option value="usdc">USDC (BEP-20)</option>
             </select>
         </div>
 
         <div class="wallet-box">
             <h3 id="wallet-title">Bitcoin (BTC) Address</h3>
-            <code id="wallet-address">BTC_ADDRESS_PLACEHOLDER</code>
+            <code id="wallet-address">bc1qgnpplgvp33zf77dnthxl5xv5cxxsk5arak540l</code>
         </div>
 
         <form id="payment-form">
@@ -152,11 +152,11 @@
 
     <script>
         const cryptoData = {
-            'btc': { name: 'Bitcoin (BTC)', address: 'BTC_ADDRESS_PLACEHOLDER' },
-            'ltc': { name: 'Litecoin (LTC)', address: 'LTC_ADDRESS_PLACEHOLDER' },
-            'usdt-bep20': { name: 'USDT (BEP-20)', address: 'USDT_BEP20_ADDRESS_PLACEHOLDER' },
-            'bnb': { name: 'Binance Coin (BNB)', address: 'BNB_ADDRESS_PLACEHOLDER' },
-            'usdc': { name: 'USDC (ERC-20)', address: 'USDC_ERC20_ADDRESS_PLACEHOLDER' }
+            'btc': { name: 'Bitcoin (BTC)', address: 'bc1qgnpplgvp33zf77dnthxl5xv5cxxsk5arak540l' },
+            'ltc': { name: 'Litecoin (LTC)', address: 'LMvcmkQ8UcPLGLJAV6j5zMtnQjEhdiz13t' },
+            'usdt-bep20': { name: 'USDT (BEP-20)', address: '0x4b5C494a822E9B1876C8B879fE65b1F0Aba9c4BC' },
+            'bnb': { name: 'Binance Coin (BNB)', address: '0x4b5C494a822E9B1876C8B879fE65b1F0Aba9c4BC' },
+            'usdc': { name: 'USDC (BEP-20)', address: '0x4b5C494a822E9B1876C8B879fE65b1F0Aba9c4BC' }
         };
 
         document.getElementById('crypto-select').addEventListener('change', (e) => {
