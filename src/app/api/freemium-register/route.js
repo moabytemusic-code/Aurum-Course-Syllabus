@@ -46,7 +46,7 @@ export async function POST(req) {
     // Add contact to Brevo and opt into list
     if (process.env.BREVO_API_KEY) {
       try {
-        const brevoListId = parseInt(process.env.BREVO_LIST_ID || '68', 10);
+        const brevoListId = parseInt(process.env.BREVO_FREEMIUM_LIST_ID || '71', 10);
         await fetch('https://api.brevo.com/v3/contacts', {
           method: 'POST',
           headers: {
