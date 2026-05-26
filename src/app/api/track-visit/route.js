@@ -96,6 +96,18 @@ export async function POST(req) {
     }
 
     if (visit_count > 10) {
+      // Check if user has an approved payment before locking them out
+      const { data: approvedPayment } = await supabase
+        .from('freemium_payments')
+        .select('id')
+        .eq('prospect_id', userId)
+        .eq('status', 'approved')
+        .maybeSingle();
+
+      if (approvedPayment) {
+        return NextResponse.json({ success: true, locked: false, visit_count });
+      }
+
       return NextResponse.json({ success: true, locked: true, visit_count });
     }
 
