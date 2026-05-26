@@ -21,7 +21,7 @@ export default async function Page() {
       if (trackingRes.ok) {
         const data = await trackingRes.json();
         if (data.locked) {
-          redirect('/checkout.html');
+          redirect('https://www.welcometoaurum.com/services');
         }
       }
     } catch (err) {
