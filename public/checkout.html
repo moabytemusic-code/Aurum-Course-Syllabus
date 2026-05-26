@@ -127,13 +127,20 @@
         <h1>Upgrade Your Access</h1>
         <p>Your 10 free visits to the Aurum Education Portal have concluded. To continue accessing the system and become an Official Partner, please complete your payment.</p>
         
-        <div class="wallet-box">
-            <h3>USDT (TRC20) Address</h3>
-            <code>TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
+        <div style="margin-bottom: 24px; text-align: left;">
+            <label for="crypto-select">Select Payment Network</label>
+            <select id="crypto-select" style="width: 100%; padding: 16px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; color: #fff; font-size: 16px; appearance: none;">
+                <option value="btc">Bitcoin (BTC)</option>
+                <option value="ltc">Litecoin (LTC)</option>
+                <option value="usdt-bep20">USDT (BEP-20)</option>
+                <option value="bnb">Binance Coin (BNB)</option>
+                <option value="usdc">USDC (ERC-20)</option>
+            </select>
         </div>
+
         <div class="wallet-box">
-            <h3>USDC (ERC20) Address</h3>
-            <code>0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
+            <h3 id="wallet-title">Bitcoin (BTC) Address</h3>
+            <code id="wallet-address">BTC_ADDRESS_PLACEHOLDER</code>
         </div>
 
         <form id="payment-form">
@@ -144,6 +151,20 @@
     </div>
 
     <script>
+        const cryptoData = {
+            'btc': { name: 'Bitcoin (BTC)', address: 'BTC_ADDRESS_PLACEHOLDER' },
+            'ltc': { name: 'Litecoin (LTC)', address: 'LTC_ADDRESS_PLACEHOLDER' },
+            'usdt-bep20': { name: 'USDT (BEP-20)', address: 'USDT_BEP20_ADDRESS_PLACEHOLDER' },
+            'bnb': { name: 'Binance Coin (BNB)', address: 'BNB_ADDRESS_PLACEHOLDER' },
+            'usdc': { name: 'USDC (ERC-20)', address: 'USDC_ERC20_ADDRESS_PLACEHOLDER' }
+        };
+
+        document.getElementById('crypto-select').addEventListener('change', (e) => {
+            const selected = cryptoData[e.target.value];
+            document.getElementById('wallet-title').textContent = selected.name + ' Address';
+            document.getElementById('wallet-address').textContent = selected.address;
+        });
+
         document.getElementById('payment-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const txHash = document.getElementById('tx_hash').value;
