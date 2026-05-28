@@ -32,7 +32,10 @@ export function middleware(request) {
   return NextResponse.next();
 }
 
-// Intercept all routes except static folder, images, and favicons
+// Intercept the root path and all other routes except static folder, images, and favicons
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|images/).*)"],
+  matcher: [
+    "/",
+    "/((?!_next/static|_next/image|favicon.ico|images/).*)"
+  ],
 };
