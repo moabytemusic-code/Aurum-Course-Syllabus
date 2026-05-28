@@ -35,13 +35,13 @@ export function middleware(request) {
         const email = Buffer.from(urlToken, "base64").toString("utf8");
 
         if (email && email.includes("@")) {
-          // Build the clean redirect URL (strip the ?pt= param)
-          const cleanUrl = new URL(request.url);
-          cleanUrl.searchParams.delete("pt");
+          // Always redirect to the canonical public URL, never the internal Vercel URL
+          const canonicalUrl = new URL("https://www.welcometoaurum.com/syllabus");
 
-          const response = NextResponse.redirect(cleanUrl);
+          const response = NextResponse.redirect(canonicalUrl);
 
-          // Set the session cookie (scoped to this domain via the Vercel proxy)
+          // Set the session cookie server-side — response is proxied through
+          // welcometoaurum.com so the browser attributes it to that domain
           const sessionPayload = Buffer.from(
             JSON.stringify({ email, type: "partner", ts: Date.now() })
           ).toString("base64");
