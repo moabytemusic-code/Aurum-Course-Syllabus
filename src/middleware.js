@@ -25,7 +25,10 @@ export function middleware(request) {
 
   if (!partnerSession && !freemiumSession) {
     const loginUrl = new URL("/partner/login", "https://www.welcometoaurum.com");
-    loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
+    const redirectPath = request.nextUrl.basePath 
+      ? (request.nextUrl.pathname === "/" ? request.nextUrl.basePath : `${request.nextUrl.basePath}${request.nextUrl.pathname}`)
+      : request.nextUrl.pathname;
+    loginUrl.searchParams.set("redirect", redirectPath + request.nextUrl.search);
     return NextResponse.redirect(loginUrl);
   }
 
