@@ -164,17 +164,6 @@ body.theme-sapphire {
   color: #f0f9ff !important;
 }
 
-body.theme-ruby {
-  --color-background: #140505; /* Black cherry */
-  --color-card: #240a0a;
-  --color-accent-gold: #fb7185;
-  --color-gold-dark: #e11d48;
-  --color-text-primary: #fff1f2;
-  --color-text-secondary: #fecdd3;
-  background-color: #140505 !important;
-  color: #fff1f2 !important;
-}
-
 body.theme-obsidian {
   --color-background: #09090b; /* True sleek black */
   --color-card: #141417;

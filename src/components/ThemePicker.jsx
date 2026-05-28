@@ -1,11 +1,12 @@
 
 
 const themes = [
-  { id: 'aurum', name: 'Aurum Premium', color1: '#fbbf24', color2: '#8b5cf6' },
-  { id: 'emerald', name: 'Cyber Emerald', color1: '#10b981', color2: '#06b6d4' },
-  { id: 'ruby', name: 'Obsidian Ruby', color1: '#ef4444', color2: '#ec4899' },
-  { id: 'amethyst', name: 'Mystic Amethyst', color1: '#d946ef', color2: '#6366f1' },
-  { id: 'slate', name: 'Cool Slate', color1: '#94a3b8', color2: '#475569' },
+  { id: 'aurum', name: 'Aurum Premium', color1: '#D4AF37', color2: '#8B7E74' },
+  { id: 'emerald', name: 'Professional Green', color1: '#22A676', color2: '#13695D' },
+  { id: 'sapphire', name: 'Sapphire Blue', color1: '#0066CC', color2: '#4D94FF' },
+  { id: 'amethyst', name: 'Corporate Violet', color1: '#8257E5', color2: '#5A3A9E' },
+  { id: 'slate', name: 'Tech Gray', color1: '#8B95A5', color2: '#3B82F6' },
+  { id: 'obsidian', name: 'Minimalist Carbon', color1: '#A3A3A3', color2: '#525252' },
 ];
 
 const ThemePicker = ({ currentTheme, onChangeTheme, isDarkBackdrop = false }) => {

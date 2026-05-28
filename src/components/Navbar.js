@@ -14,8 +14,11 @@ export default function Navbar({ onEnterPresentation }) {
   const [textScale, setTextScale] = useState("medium");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("aurum-syllabus-theme") || "slate";
+    let savedTheme = localStorage.getItem("aurum-syllabus-theme") || "slate";
+    const validThemes = ['slate', 'carbon', 'midnight', 'espresso', 'obsidian', 'aurum'];
+    if (!validThemes.includes(savedTheme)) savedTheme = 'slate';
     const savedScale = localStorage.getItem("aurum-syllabus-scale") || "medium";
+    
     setTheme(savedTheme);
     setTextScale(savedScale);
     document.body.className = `theme-${savedTheme} text-scale-${savedScale}`;
@@ -110,10 +113,9 @@ export default function Navbar({ onEnterPresentation }) {
                       <div className="grid grid-cols-3 gap-1.5">
                         {[
                           { id: 'slate', name: 'Slate' },
-                          { id: 'emerald', name: 'Emerald' },
-                          { id: 'amethyst', name: 'Amethyst' },
-                          { id: 'sapphire', name: 'Sapphire' },
-                          { id: 'ruby', name: 'Ruby' },
+                          { id: 'carbon', name: 'Carbon' },
+                          { id: 'midnight', name: 'Midnight' },
+                          { id: 'espresso', name: 'Espresso' },
                           { id: 'obsidian', name: 'Obsidian' }
                         ].map(t => (
                           <button
@@ -270,7 +272,7 @@ export default function Navbar({ onEnterPresentation }) {
               <div className="space-y-1.5">
                 <span className="text-[10px] text-text-secondary font-bold block">Theme Color</span>
                 <div className="grid grid-cols-3 gap-2">
-                  {['slate', 'emerald', 'amethyst', 'sapphire', 'ruby', 'obsidian'].map(t => (
+                  {['slate', 'carbon', 'midnight', 'espresso', 'obsidian'].map(t => (
                     <button
                       key={t}
                       onClick={() => handleThemeChange(t)}

@@ -58,7 +58,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
       if (href && href.startsWith("#tooltip:")) {
         const tooltipText = decodeURIComponent(href.replace("#tooltip:", ""));
         return (
-          <span className="info-bubble">
+          <span className="info-bubble" tabIndex="0" role="button" aria-haspopup="true">
             {children}
             <span className="tooltip-text">
               <span className="flex items-center gap-1.5 text-accent-gold mb-1 font-bold">
