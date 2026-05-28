@@ -9,7 +9,8 @@ export function middleware(request) {
     pathname === "/checkout.html" ||
     pathname.startsWith("/api/freemium-register") ||
     pathname.startsWith("/api/submit-payment") ||
-    pathname.startsWith("/api/track-visit")
+    pathname.startsWith("/api/track-visit") ||
+    pathname.startsWith("/api/debug-auth")
   ) {
     return NextResponse.next();
   }
