@@ -74,9 +74,10 @@ export async function GET(request) {
       value: sessionPayload,
       httpOnly: true,
       path: '/',
-      secure: process.env.NODE_ENV === 'production',
+      secure: true,
       maxAge: 60 * 60 * 24 * 7, // 7 days
       sameSite: 'lax',
+      domain: '.welcometoaurum.com', // Shared across all subpaths on the main domain
     });
 
     return response;

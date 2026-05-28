@@ -24,9 +24,46 @@ export function middleware(request) {
   const partnerSession = request.cookies.get("aurum_partner_session");
   const freemiumSession = request.cookies.get("aurum_freemium_session");
 
+  // --- URL Token Auth (for cross-domain partner portal access) ---
+  // If no cookie but ?pt=<base64email> is present in the URL, accept it,
+  // set the session cookie, and redirect to the clean URL without the token.
   if (!partnerSession && !freemiumSession) {
-    // Redirect to login with current path as the redirect parameter
-    // request.nextUrl.pathname is already stripped of basePath by Next.js
+    const urlToken = request.nextUrl.searchParams.get("pt");
+
+    if (urlToken) {
+      try {
+        const email = Buffer.from(urlToken, "base64").toString("utf8");
+
+        if (email && email.includes("@")) {
+          // Build the clean redirect URL (strip the ?pt= param)
+          const cleanUrl = new URL(request.url);
+          cleanUrl.searchParams.delete("pt");
+
+          const response = NextResponse.redirect(cleanUrl);
+
+          // Set the session cookie (scoped to this domain via the Vercel proxy)
+          const sessionPayload = Buffer.from(
+            JSON.stringify({ email, type: "partner", ts: Date.now() })
+          ).toString("base64");
+
+          response.cookies.set({
+            name: "aurum_partner_session",
+            value: sessionPayload,
+            httpOnly: true,
+            path: "/",
+            secure: true,
+            maxAge: 60 * 60 * 24 * 7, // 7 days
+            sameSite: "lax",
+          });
+
+          return response;
+        }
+      } catch {
+        // Invalid token — fall through to normal auth check
+      }
+    }
+
+    // No valid session or token — redirect to login
     const currentPath = request.nextUrl.pathname;
     const fullPath = `/syllabus${currentPath === "/" ? "" : currentPath}`;
 
