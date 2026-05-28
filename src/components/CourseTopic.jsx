@@ -30,6 +30,7 @@ const getTakeawayIcon = (text) => {
 
 const CourseTopic = ({ topic, onSelectModule }) => {
   const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Custom components for Markdown to support Tooltips, Callouts, and Mermaid
   const MarkdownComponents = {
@@ -149,7 +150,9 @@ const CourseTopic = ({ topic, onSelectModule }) => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            style={{ overflow: 'hidden' }}
+            onAnimationStart={() => setIsAnimating(true)}
+            onAnimationComplete={() => setIsAnimating(false)}
+            style={{ overflow: isAnimating ? 'hidden' : 'visible' }}
           >
             <div style={{ 
               marginTop: '1.5rem', 

@@ -42,24 +42,28 @@ const Accordion = ({ children, type = "single", collapsible = true, defaultValue
 
 const AccordionItem = React.forwardRef(({ className = "", value, children, ...props }, ref) => {
   return (
-    <div
-      ref={ref}
-      className={`rounded-2xl border border-[rgba(232,198,112,0.12)] bg-card overflow-hidden transition-all duration-300 hover:border-accent-gold/30 ${className}`}
-      {...props}
-    >
-      <AccordionContext.Consumer>
-        {(context) => {
-          if (!context) throw new Error("AccordionItem must be used within Accordion");
-          const isExpanded = context.activeItems.includes(value);
-          return React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, { value, isExpanded });
-            }
-            return child;
-          });
-        }}
-      </AccordionContext.Consumer>
-    </div>
+    <AccordionContext.Consumer>
+      {(context) => {
+        if (!context) throw new Error("AccordionItem must be used within Accordion");
+        const isExpanded = context.activeItems.includes(value);
+        return (
+          <div
+            ref={ref}
+            className={`rounded-2xl border border-[rgba(232,198,112,0.12)] bg-card transition-all duration-300 hover:border-accent-gold/30 ${
+              isExpanded ? "overflow-visible" : "overflow-hidden"
+            } ${className}`}
+            {...props}
+          >
+            {React.Children.map(children, (child) => {
+              if (React.isValidElement(child)) {
+                return React.cloneElement(child, { value, isExpanded });
+              }
+              return child;
+            })}
+          </div>
+        );
+      }}
+    </AccordionContext.Consumer>
   );
 });
 AccordionItem.displayName = "AccordionItem";
@@ -96,7 +100,7 @@ const AccordionContent = React.forwardRef(
         ref={ref}
         className={`transition-all duration-300 ease-in-out ${
           isExpanded ? "max-h-[5000px] border-t border-[rgba(232,198,112,0.08)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-        } overflow-hidden`}
+        } ${isExpanded ? "overflow-visible" : "overflow-hidden"}`}
         {...props}
       >
         <div className={`p-6 md:p-8 pt-6 ${className}`}>{children}</div>

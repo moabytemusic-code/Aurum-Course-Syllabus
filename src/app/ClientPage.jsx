@@ -329,7 +329,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
                             </div>
 
                             {expandedTopicId === topic.id && (
-                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
+                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-visible animate-in fade-in duration-300">
                                 <div className="markdown-content">
                                   <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                                     {topic.deepDive}
@@ -403,7 +403,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
                             </div>
 
                             {expandedTopicId === topic.id && (
-                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-hidden animate-in fade-in duration-300">
+                              <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-visible animate-in fade-in duration-300">
                                 <div className="markdown-content">
                                   <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                                     {topic.deepDive}
@@ -440,7 +440,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {module2Products && module2Products.topics.map(topic => (
-              <Card key={topic.id} className="relative flex flex-col justify-between overflow-hidden group">
+              <Card key={topic.id} className={`relative flex flex-col justify-between group ${expandedTopicId === topic.id ? 'overflow-visible' : 'overflow-hidden'}`}>
                 {/* Visual Accent Corner Glow */}
                 <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-accent-gold/5 blur-2xl group-hover:bg-accent-gold/15 transition-all duration-300" />
                 
@@ -483,7 +483,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
 
                 {/* Direct Dropdown detailed coursework inside card flow */}
                 {expandedTopicId === topic.id && (
-                  <div className="col-span-full border-t border-accent-gold/20 p-6 bg-background/95 overflow-hidden animate-in slide-in-from-top duration-300">
+                  <div className="col-span-full border-t border-accent-gold/20 p-6 bg-background/95 overflow-visible animate-in slide-in-from-top duration-300">
                     <div className="markdown-content text-left text-sm max-w-none">
                       <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
                         {topic.deepDive}
