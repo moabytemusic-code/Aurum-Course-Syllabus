@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronDown, Download, FileText, Menu, X, Settings, MonitorPlay } from "lucide-react";
+import { ChevronDown, Download, FileText, Menu, X, Settings, MonitorPlay, Send, Video, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Navbar({ onEnterPresentation }) {
@@ -47,6 +47,18 @@ export default function Navbar({ onEnterPresentation }) {
     { name: "Partner Program", url: "https://www.welcometoaurum.com/English.AURUM Partner Program_copy.pdf" },
     { name: "Aurum Token", url: "https://www.welcometoaurum.com/english_Aurum_Token.pdf" },
     { name: "Guest Presentation", url: "https://www.welcometoaurum.com/English. Aurum Guest Presentation.pdf" }
+  ];
+
+  const telegramChannels = [
+    { name: "Aurum Main English", url: "https://t.me/aurum_official" }, // TODO: Update with real URL
+    { name: "Aurum Support", url: "https://t.me/aurum_support" }, // TODO: Update with real URL
+    { name: "Aurum Rise", url: "https://t.me/aurumrise" }, // TODO: Update with real URL
+    { name: "Bryan Benson's Channel", url: "https://t.me/bryan_benson" } // TODO: Update with real URL
+  ];
+
+  const appsAndMedia = [
+    { name: "Neo Bank App", url: "https://t.me/neobank" }, // TODO: Update with real URL
+    { name: "YouTube Channel", url: "https://youtube.com/aurum" } // TODO: Update with real URL
   ];
 
   return (
@@ -162,7 +174,7 @@ export default function Navbar({ onEnterPresentation }) {
               )}
             </div>
 
-            {/* Download Guide PDF */}
+            {/* Consolidated Resources Dropdown */}
             <div className="relative">
               <Button 
                 variant="default"
@@ -174,7 +186,7 @@ export default function Navbar({ onEnterPresentation }) {
                 }}
               >
                 <Download size={12} />
-                Guides
+                Resources
                 <ChevronDown size={12} className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
               </Button>
 
@@ -184,19 +196,75 @@ export default function Navbar({ onEnterPresentation }) {
                     className="fixed inset-0 z-10" 
                     onClick={() => setIsDropdownOpen(false)}
                   />
-                  <div className="absolute right-0 mt-3 w-64 origin-top-right rounded-2xl border border-[rgba(232,198,112,0.15)] bg-card p-2 shadow-2xl z-20 text-left">
-                    {pdfFiles.map((pdf, idx) => (
-                      <a
-                        key={idx}
-                        href={pdf.url}
-                        download
-                        className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-text-secondary hover:bg-background hover:text-accent-gold transition-all"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        <FileText size={16} className="text-accent-gold" />
-                        <span>{pdf.name}</span>
-                      </a>
-                    ))}
+                  <div className="absolute right-0 mt-3 w-72 origin-top-right rounded-2xl border border-[rgba(232,198,112,0.15)] bg-card p-4 shadow-2xl z-20 text-left space-y-4">
+                    
+                    {/* PDF Guides */}
+                    <div>
+                      <h5 className="text-[10px] font-bold text-accent-gold uppercase tracking-wider mb-2 px-2">PDF Guides</h5>
+                      <div className="space-y-1">
+                        {pdfFiles.map((pdf, idx) => (
+                          <a
+                            key={idx}
+                            href={pdf.url}
+                            download
+                            className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-text-secondary hover:bg-background hover:text-accent-gold transition-all"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            <FileText size={14} className="text-accent-gold shrink-0" />
+                            <span>{pdf.name}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="h-[1px] bg-[rgba(232,198,112,0.1)]" />
+
+                    {/* Telegram Channels */}
+                    <div>
+                      <h5 className="text-[10px] font-bold text-accent-gold uppercase tracking-wider mb-2 px-2">Telegram Channels</h5>
+                      <div className="space-y-1">
+                        {telegramChannels.map((ch, idx) => (
+                          <a
+                            key={idx}
+                            href={ch.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-text-secondary hover:bg-background hover:text-accent-gold transition-all"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            <Send size={14} className="text-accent-gold shrink-0" />
+                            <span>{ch.name}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="h-[1px] bg-[rgba(232,198,112,0.1)]" />
+
+                    {/* Apps & Media */}
+                    <div>
+                      <h5 className="text-[10px] font-bold text-accent-gold uppercase tracking-wider mb-2 px-2">Apps & Media</h5>
+                      <div className="space-y-1">
+                        {appsAndMedia.map((item, idx) => (
+                          <a
+                            key={idx}
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 text-xs text-text-secondary hover:bg-background hover:text-accent-gold transition-all"
+                            onClick={() => setIsDropdownOpen(false)}
+                          >
+                            {item.name.toLowerCase().includes("youtube") ? (
+                              <Video size={14} className="text-accent-gold shrink-0" />
+                            ) : (
+                              <Globe size={14} className="text-accent-gold shrink-0" />
+                            )}
+                            <span>{item.name}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
                   </div>
                 </>
               )}
@@ -310,21 +378,68 @@ export default function Navbar({ onEnterPresentation }) {
               </div>
             </div>
 
-            {/* Mobile PDF section */}
-            <div className="border-t border-[rgba(232,198,112,0.1)] pt-4 px-4 mt-4">
-              <p className="text-xs text-text-secondary font-sans uppercase mb-2 tracking-wider">Download PDFs</p>
-              <div className="grid grid-cols-1 gap-2">
-                {pdfFiles.map((pdf, idx) => (
-                  <a
-                    key={idx}
-                    href={pdf.url}
-                    download
-                    className="flex items-center gap-2 rounded-xl py-2 text-sm text-text-secondary hover:text-accent-gold"
-                  >
-                    <Download size={14} className="text-accent-gold" />
-                    <span>{pdf.name}</span>
-                  </a>
-                ))}
+            {/* Mobile Resources section */}
+            <div className="border-t border-[rgba(232,198,112,0.1)] pt-4 px-4 mt-4 space-y-4">
+              <p className="text-xs text-accent-gold font-sans uppercase tracking-wider font-bold">Resources</p>
+              
+              {/* PDF Guides */}
+              <div className="space-y-2">
+                <span className="text-[10px] text-text-secondary font-bold block uppercase tracking-wider">PDF Guides</span>
+                <div className="grid grid-cols-1 gap-1 pl-2">
+                  {pdfFiles.map((pdf, idx) => (
+                    <a
+                      key={idx}
+                      href={pdf.url}
+                      download
+                      className="flex items-center gap-2 py-1 text-sm text-text-secondary hover:text-accent-gold"
+                    >
+                      <Download size={14} className="text-accent-gold shrink-0" />
+                      <span>{pdf.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Telegram Channels */}
+              <div className="space-y-2">
+                <span className="text-[10px] text-text-secondary font-bold block uppercase tracking-wider">Telegram Channels</span>
+                <div className="grid grid-cols-1 gap-1 pl-2">
+                  {telegramChannels.map((ch, idx) => (
+                    <a
+                      key={idx}
+                      href={ch.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 py-1 text-sm text-text-secondary hover:text-accent-gold"
+                    >
+                      <Send size={14} className="text-accent-gold shrink-0" />
+                      <span>{ch.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Apps & Media */}
+              <div className="space-y-2">
+                <span className="text-[10px] text-text-secondary font-bold block uppercase tracking-wider">Apps & Media</span>
+                <div className="grid grid-cols-1 gap-1 pl-2">
+                  {appsAndMedia.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 py-1 text-sm text-text-secondary hover:text-accent-gold"
+                    >
+                      {item.name.toLowerCase().includes("youtube") ? (
+                        <Video size={14} className="text-accent-gold shrink-0" />
+                      ) : (
+                        <Globe size={14} className="text-accent-gold shrink-0" />
+                      )}
+                      <span>{item.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
