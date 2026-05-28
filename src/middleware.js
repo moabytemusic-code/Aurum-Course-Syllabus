@@ -54,6 +54,7 @@ export function middleware(request) {
             secure: true,
             maxAge: 60 * 60 * 24 * 7, // 7 days
             sameSite: "lax",
+            domain: ".welcometoaurum.com",
           });
 
           return response;
