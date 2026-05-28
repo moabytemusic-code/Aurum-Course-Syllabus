@@ -223,6 +223,28 @@ export default function ClientPage({ initialCourseModules = [] }) {
                     </li>
                   </ul>
                 </div>
+
+                <div className="flex justify-start mt-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex items-center gap-2"
+                    onClick={() => toggleTopicExpander('syllabus-guide')}
+                  >
+                    <BookOpen size={16} />
+                    {expandedTopicId === 'syllabus-guide' ? "Close Guide" : "Dive Deeper: How To Use The Syllabus"}
+                  </Button>
+                </div>
+
+                {expandedTopicId === 'syllabus-guide' && (
+                  <div className="mt-4 p-6 bg-background/50 border-l-4 border-accent-gold rounded-r-2xl overflow-visible animate-in fade-in duration-300 text-left">
+                    <div className="markdown-content">
+                      <ReactMarkdown rehypePlugins={[rehypeRaw]} components={MarkdownComponents}>
+                        {SYLLABUS_GUIDE_CONTENT}
+                      </ReactMarkdown>
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
 
@@ -569,3 +591,22 @@ export default function ClientPage({ initialCourseModules = [] }) {
     </div>
   );
 }
+
+const SYLLABUS_GUIDE_CONTENT = `<h2>How To Use The Syllabus: A Comprehensive Guide</h2>
+<p>Familiarizing yourself with the course syllabus is essential for maximizing your learning experience within the Aurum ecosystem. This guide outlines how to effectively utilize the syllabus to navigate through various modules and topics.</p>
+<h3>1. Familiarize Yourself</h3>
+<p>Start by reviewing the course syllabus layout. Each module covers different topics, highlighting essential takeaways and detailed coursework. Understanding the structure will help you know what information is available.</p>
+<h3>2. Select a Module</h3>
+<p>Choose a module based on your needs. For instance, if you want to learn about funding your wallet, select the module titled <strong>Getting Started with Aurum</strong>.</p>
+<h3>3. Focus on Key Takeaways</h3>
+<p>Each topic provides key takeaways that summarize the most important information. Pay attention to these, as they will give you a quick overview of what you need to understand before diving deeper.</p>
+<h3>4. Follow Detailed Coursework</h3>
+<p>Dive into the detailed coursework section. This will guide you step-by-step through processes, such as setting up your <a href="#tooltip:Web3%20Wallet%3A%20A%20decentralized%20wallet%20(like%20MetaMask%20or%20Trust%20Wallet)%20that%20allows%20users%20to%20interact%20with%20decentralized%20applications%20(dApps)%2C%20hold%20digital%20assets%2C%20and%20sign%20smart%20contract%20transactions%20directly.">wallet</a> or funding your <a href="#tooltip:Neyro%20AI%20Agent%3A%20Aurum's%20non-custodial%20trading%20software%20that%20operates%20directly%20from%20your%20personal%20wallet%2C%20removing%20emotion%20and%20executing%20trades%2024%2F7.">NEYRO</a> bot.</p>
+<h3>5. Take Notes</h3>
+<p>While you study, take notes on crucial points or steps that are relevant to your own experience with Aurum. This will help reinforce your learning and provide a quick reference in the future.</p>
+<h3>6. Refer Back</h3>
+<p>Use the syllabus as a reference whenever you need assistance with a task or to reiterate a concept. It serves as a valuable tool for ongoing learning.</p>
+<h3>7. Stay Engaged</h3>
+<p>Don't hesitate to revisit modules and topics for deeper insights as you progress through the Aurum ecosystem. Continuous engagement will solidify your understanding and improve your trading capabilities.</p>
+<h3>Conclusion</h3>
+<p>By following these steps, you'll effectively navigate the syllabus and enhance your learning experience. Remember, the goal is to leverage the resources available to you and become proficient in using the Aurum platform.</p>`;
