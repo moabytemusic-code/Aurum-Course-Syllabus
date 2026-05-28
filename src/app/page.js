@@ -5,7 +5,7 @@ import ClientPage from "./ClientPage";
 export const dynamic = 'force-dynamic';
 
 export default async function Page() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const freemiumSession = cookieStore.get('aurum_freemium_session');
 
   if (freemiumSession) {

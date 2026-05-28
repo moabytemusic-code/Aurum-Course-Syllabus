@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 const AccordionContext = React.createContext(null);
 
@@ -95,16 +96,30 @@ AccordionTrigger.displayName = "AccordionTrigger";
 
 const AccordionContent = React.forwardRef(
   ({ className = "", children, isExpanded, ...props }, ref) => {
+    const [isAnimating, setIsAnimating] = React.useState(false);
+
     return (
-      <div
+      <motion.div
         ref={ref}
-        className={`transition-all duration-300 ease-in-out ${
-          isExpanded ? "max-h-[5000px] border-t border-[rgba(232,198,112,0.08)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-        } ${isExpanded ? "overflow-visible" : "overflow-hidden"}`}
+        initial={false}
+        animate={
+          isExpanded 
+            ? { height: "auto", opacity: 1 } 
+            : { height: 0, opacity: 0 }
+        }
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        onAnimationStart={() => setIsAnimating(true)}
+        onAnimationComplete={() => setIsAnimating(false)}
+        className={`border-[rgba(232,198,112,0.08)] ${
+          isExpanded ? "border-t" : ""
+        } ${isExpanded ? "" : "pointer-events-none"} ${className}`}
+        style={{
+          overflow: isAnimating ? "hidden" : (isExpanded ? "visible" : "hidden")
+        }}
         {...props}
       >
-        <div className={`p-6 md:p-8 pt-6 ${className}`}>{children}</div>
-      </div>
+        <div className="p-6 md:p-8 pt-6">{children}</div>
+      </motion.div>
     );
   }
 );
