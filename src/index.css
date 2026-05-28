@@ -133,6 +133,22 @@ body.theme-obsidian {
   --theme-glow-2: rgba(82, 82, 82, 0.08);
 }
 
+body.theme-navy {
+  --bg-primary: #0B132B;
+  --bg-secondary: #151E3D;
+  --text-primary: #F0F4F8;
+  --text-secondary: #9BA4B5;
+  --accent-gold: #93C5FD;
+  --accent-gold-glow: rgba(147, 197, 253, 0.2);
+  --accent-purple: #60A5FA;
+  --accent-blue: #E2E8F0;
+  
+  --glass-bg: rgba(21, 30, 61, 0.75);
+  --glass-border: rgba(147, 197, 253, 0.15);
+  --theme-glow-1: rgba(147, 197, 253, 0.1);
+  --theme-glow-2: rgba(96, 165, 250, 0.08);
+}
+
 
 
 body.presentation-mode {

@@ -15,7 +15,7 @@ export default function Navbar({ onEnterPresentation }) {
 
   useEffect(() => {
     let savedTheme = localStorage.getItem("aurum-syllabus-theme") || "slate";
-    const validThemes = ['slate', 'carbon', 'midnight', 'espresso', 'obsidian', 'aurum'];
+    const validThemes = ['slate', 'carbon', 'midnight', 'espresso', 'obsidian', 'navy', 'aurum'];
     if (!validThemes.includes(savedTheme)) savedTheme = 'slate';
     const savedScale = localStorage.getItem("aurum-syllabus-scale") || "medium";
     
@@ -116,7 +116,8 @@ export default function Navbar({ onEnterPresentation }) {
                           { id: 'carbon', name: 'Carbon' },
                           { id: 'midnight', name: 'Midnight' },
                           { id: 'espresso', name: 'Espresso' },
-                          { id: 'obsidian', name: 'Obsidian' }
+                          { id: 'obsidian', name: 'Obsidian' },
+                          { id: 'navy', name: 'Navy' }
                         ].map(t => (
                           <button
                             key={t.id}
@@ -272,7 +273,7 @@ export default function Navbar({ onEnterPresentation }) {
               <div className="space-y-1.5">
                 <span className="text-[10px] text-text-secondary font-bold block">Theme Color</span>
                 <div className="grid grid-cols-3 gap-2">
-                  {['slate', 'carbon', 'midnight', 'espresso', 'obsidian'].map(t => (
+                  {['slate', 'carbon', 'midnight', 'espresso', 'obsidian', 'navy'].map(t => (
                     <button
                       key={t}
                       onClick={() => handleThemeChange(t)}
