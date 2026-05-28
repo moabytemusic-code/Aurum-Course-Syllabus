@@ -6,16 +6,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/syllabus',
-        basePath: false,
-        permanent: false,
-      },
-    ]
-  },
 };
 
 export default nextConfig;
