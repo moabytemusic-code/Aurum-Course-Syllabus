@@ -5,7 +5,8 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { 
   BookOpen, Layers, Info, CheckCircle2, ShieldCheck, Zap, 
-  TrendingUp, Key, Coins, Search, ArrowRight, UserCheck, HelpCircle
+  TrendingUp, Key, Coins, Search, ArrowRight, UserCheck, HelpCircle,
+  Calendar, Clock, Video, ExternalLink
 } from "lucide-react";
 
 import Navbar from "../components/Navbar";
@@ -273,6 +274,123 @@ export default function ClientPage({ initialCourseModules = [] }) {
                     <p className="text-xs text-text-secondary mt-1">Directs brand strategy, client engagement, and partner ranks.</p>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Section 1.5: Webinar & Onboarding Center */}
+        <section id="webinars" className="scroll-mt-24 py-12">
+          <div className="flex flex-col items-center text-center mb-12">
+            <Badge variant="outline" className="mb-3 uppercase tracking-widest text-[10px] border-accent-gold/20">
+              Live / Orientation
+            </Badge>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-accent-gold">
+              Webinar & Onboarding Center
+            </h2>
+            <p className="text-sm text-text-secondary max-w-xl mt-2 font-sans">
+              Join our weekly live interactive workshops to master Web3 wallets, configure AI trading bots, and participate in Q&A sessions with the core team.
+            </p>
+            <Separator className="mt-4 w-12" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Webinar Card 1 */}
+            <Card className="flex flex-col justify-between relative overflow-hidden group hover:border-accent-gold/30 transition-colors">
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-emerald-500/5 blur-xl group-hover:bg-emerald-500/10 transition-colors" />
+              <CardHeader className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/15 border-none text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+                    Weekly Orientation
+                  </Badge>
+                  <Calendar size={18} className="text-emerald-400" />
+                </div>
+                <CardTitle className="text-xl font-serif text-[#F0EDE6] group-hover:text-accent-gold transition-colors font-bold">
+                  Aurum Rise Orientation
+                </CardTitle>
+                <div className="flex items-center gap-1.5 text-xs text-text-secondary font-mono mt-2">
+                  <Clock size={12} className="text-emerald-400" /> Tuesdays at 8:00 PM EST
+                </div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 space-y-4">
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  Understand the core vision of Aurum. Learn how AI trading packages scale, look under the hood of arbitrage trading, and learn to navigate the backoffice platform safely.
+                </p>
+                <Separator className="bg-white/5" />
+                <Button 
+                  asChild
+                  className="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <a href="https://us06web.zoom.us/j/88391763460?pwd=aR0z0mIKRIhR3KEvMEbJHslNNgA52c.1" target="_blank" rel="noopener noreferrer">
+                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Webinar Card 2 */}
+            <Card className="flex flex-col justify-between relative overflow-hidden group hover:border-accent-gold/30 transition-colors">
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-sky-500/5 blur-xl group-hover:bg-sky-500/10 transition-colors" />
+              <CardHeader className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-sky-500/10 text-sky-400 hover:bg-sky-500/15 border-none text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+                    Technical Onboarding
+                  </Badge>
+                  <Calendar size={18} className="text-sky-400" />
+                </div>
+                <CardTitle className="text-xl font-serif text-[#F0EDE6] group-hover:text-accent-gold transition-colors font-bold">
+                  Web3 Onboarding Workshop
+                </CardTitle>
+                <div className="flex items-center gap-1.5 text-xs text-text-secondary font-mono mt-2">
+                  <Clock size={12} className="text-sky-400" /> Wednesdays at 8:00 PM EST
+                </div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 space-y-4">
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  A practical hands-on workshop guiding you step-by-step through setting up Trust Wallet, funding it with BNB Smart Chain gas, swapping for USDT, and connecting your NEYRO bot via WalletConnect.
+                </p>
+                <Separator className="bg-white/5" />
+                <Button 
+                  asChild
+                  className="w-full bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <a href="https://us06web.zoom.us/j/88081796736?pwd=KPz4UYIub5Si0SZQ2YkHZvbiVJYoUu.1" target="_blank" rel="noopener noreferrer">
+                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Webinar Card 3 */}
+            <Card className="flex flex-col justify-between relative overflow-hidden group hover:border-accent-gold/30 transition-colors">
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-purple-500/5 blur-xl group-hover:bg-purple-500/10 transition-colors" />
+              <CardHeader className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge className="bg-purple-500/10 text-purple-400 hover:bg-purple-500/15 border-none text-[10px] uppercase font-bold tracking-wider px-2 py-0.5">
+                    Live AMA Sessions
+                  </Badge>
+                  <Calendar size={18} className="text-purple-400" />
+                </div>
+                <CardTitle className="text-xl font-serif text-[#F0EDE6] group-hover:text-accent-gold transition-colors font-bold">
+                  Ask Me Anything (AMA)
+                </CardTitle>
+                <div className="flex items-center gap-1.5 text-xs text-text-secondary font-mono mt-2">
+                  <Clock size={12} className="text-purple-400" /> Sundays at 9:00 PM EST
+                </div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6 space-y-4">
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  Bring your questions directly to the Aurum core team. We discuss current algorithm stats, neobank card updates, market conditions, and future roadmap deliverables in an open live Q&A.
+                </p>
+                <Separator className="bg-white/5" />
+                <Button 
+                  asChild
+                  className="w-full bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <a href="https://us06web.zoom.us/j/82322682129?pwd=e8w6PvjSGiRVoqLk9OVBuXsCbMw0Wg.1" target="_blank" rel="noopener noreferrer">
+                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                  </a>
+                </Button>
               </CardContent>
             </Card>
           </div>
