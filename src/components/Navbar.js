@@ -8,6 +8,7 @@ export default function Navbar({ onEnterPresentation }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPresentationDropdownOpen, setIsPresentationDropdownOpen] = useState(false);
 
   // Settings State (loaded from localStorage on mount)
   const [theme, setTheme] = useState("slate");
@@ -84,16 +85,70 @@ export default function Navbar({ onEnterPresentation }) {
           {/* PDF Download Button & Settings Button */}
           <div className="hidden md:flex items-center gap-4 relative">
             
-            {/* Presentation Mode Button */}
-            <Button
-              onClick={onEnterPresentation}
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold text-[10px] uppercase font-bold tracking-wider h-7 px-2.5"
-            >
-              <MonitorPlay size={12} />
-              Presentation
-            </Button>
+            {/* Presentation Mode Dropdown */}
+            <div className="relative">
+              <Button
+                onClick={() => {
+                  setIsPresentationDropdownOpen(!isPresentationDropdownOpen);
+                  setIsDropdownOpen(false);
+                  setIsSettingsOpen(false);
+                }}
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1.5 border-[rgba(232,198,112,0.2)] text-accent-gold hover:bg-accent-gold/10 hover:border-accent-gold text-[10px] uppercase font-bold tracking-wider h-7 px-2.5"
+              >
+                <MonitorPlay size={12} />
+                Presentation
+                <ChevronDown size={12} className={`transition-transform duration-200 ${isPresentationDropdownOpen ? 'rotate-180' : ''}`} />
+              </Button>
+
+              {isPresentationDropdownOpen && (
+                <>
+                  <div 
+                    className="fixed inset-0 z-10" 
+                    onClick={() => setIsPresentationDropdownOpen(false)}
+                  />
+                  <div className="absolute right-0 mt-3 w-72 origin-top-right rounded-2xl border border-[rgba(232,198,112,0.15)] bg-card p-4 shadow-2xl z-20 text-left space-y-3">
+                    <div>
+                      <h5 className="text-[10px] font-bold text-accent-gold uppercase tracking-wider mb-2 px-2">Select Presentation</h5>
+                      <div className="space-y-1">
+                        <button
+                          onClick={() => {
+                            setIsPresentationDropdownOpen(false);
+                            if (onEnterPresentation) onEnterPresentation("A");
+                          }}
+                          className="w-full flex flex-col items-start gap-1 rounded-lg px-2.5 py-2 text-left hover:bg-background group transition-all cursor-pointer"
+                        >
+                          <span className="text-xs font-bold text-text-primary group-hover:text-accent-gold transition-colors flex items-center gap-1.5">
+                            <MonitorPlay size={14} className="text-accent-gold" />
+                            Presentation A
+                          </span>
+                          <span className="text-[10px] text-text-secondary pl-5 leading-normal">
+                            Orientation, course introduction, and webinar presentation.
+                          </span>
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            setIsPresentationDropdownOpen(false);
+                            if (onEnterPresentation) onEnterPresentation("B");
+                          }}
+                          className="w-full flex flex-col items-start gap-1 rounded-lg px-2.5 py-2 text-left hover:bg-background group transition-all cursor-pointer"
+                        >
+                          <span className="text-xs font-bold text-text-primary group-hover:text-accent-gold transition-colors flex items-center gap-1.5">
+                            <MonitorPlay size={14} className="text-accent-gold" />
+                            Presentation B (AI Finance)
+                          </span>
+                          <span className="text-[10px] text-text-secondary pl-5 leading-normal">
+                            Introducing AI Finance, Neyro yields, and AurumRise mission.
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
 
             {/* Settings Toggler */}
             <div className="relative">
@@ -104,6 +159,7 @@ export default function Navbar({ onEnterPresentation }) {
                 onClick={() => {
                   setIsSettingsOpen(!isSettingsOpen);
                   setIsDropdownOpen(false);
+                  setIsPresentationDropdownOpen(false);
                 }}
               >
                 <Settings size={12} />
@@ -183,6 +239,7 @@ export default function Navbar({ onEnterPresentation }) {
                 onClick={() => {
                   setIsDropdownOpen(!isDropdownOpen);
                   setIsSettingsOpen(false);
+                  setIsPresentationDropdownOpen(false);
                 }}
               >
                 <Download size={12} />
@@ -323,15 +380,27 @@ export default function Navbar({ onEnterPresentation }) {
               Glossary & FAQ
             </a>
 
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                if (onEnterPresentation) onEnterPresentation();
-              }}
-              className="block w-full text-left rounded-xl px-4 py-3 hover:bg-card text-accent-gold flex items-center gap-2"
-            >
-              <MonitorPlay size={18} /> Presentation Mode
-            </button>
+            <div className="border-t border-[rgba(232,198,112,0.1)] pt-2 mt-2 space-y-1">
+              <span className="block px-4 py-1.5 text-[9px] uppercase tracking-wider text-text-secondary font-bold font-sans">Presentations</span>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  if (onEnterPresentation) onEnterPresentation("A");
+                }}
+                className="block w-full text-left rounded-xl px-4 py-2 hover:bg-card text-text-primary hover:text-accent-gold flex items-center gap-2 text-xs"
+              >
+                <MonitorPlay size={16} className="text-accent-gold" /> Presentation A
+              </button>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  if (onEnterPresentation) onEnterPresentation("B");
+                }}
+                className="block w-full text-left rounded-xl px-4 py-2 hover:bg-card text-text-primary hover:text-accent-gold flex items-center gap-2 text-xs"
+              >
+                <MonitorPlay size={16} className="text-accent-gold" /> Presentation B (AI Finance)
+              </button>
+            </div>
             
             {/* Mobile Settings section */}
             <div className="border-t border-[rgba(232,198,112,0.1)] pt-4 px-4 space-y-4">

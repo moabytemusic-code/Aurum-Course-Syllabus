@@ -14,6 +14,7 @@ import Hero from "../components/Hero";
 import BackToTop from "../components/BackToTop";
 import Mermaid from "../components/Mermaid";
 import PresentationViewer from "../components/PresentationViewer";
+import PresentationViewerB from "../components/PresentationViewerB";
 import ChatWidgetEmbed from "../components/ChatWidgetEmbed";
 
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
@@ -51,7 +52,7 @@ export default function ClientPage({ initialCourseModules = [] }) {
   const [glossarySearch, setGlossarySearch] = useState("");
   const [activeTab, setActiveTab] = useState("all");
   const [expandedTopicId, setExpandedTopicId] = useState(null);
-  const [isPresentationMode, setIsPresentationMode] = useState(false);
+  const [presentationType, setPresentationType] = useState(null); // 'A' | 'B' | null
 
   // Markdown custom renderer components
   const MarkdownComponents = useMemo(() => ({
@@ -168,14 +169,17 @@ export default function ClientPage({ initialCourseModules = [] }) {
     setExpandedTopicId(expandedTopicId === id ? null : id);
   };
 
-  if (isPresentationMode) {
-    return <PresentationViewer onExit={() => setIsPresentationMode(false)} />;
+  if (presentationType) {
+    if (presentationType === "B") {
+      return <PresentationViewerB onExit={() => setPresentationType(null)} />;
+    }
+    return <PresentationViewer onExit={() => setPresentationType(null)} />;
   }
 
   return (
     <div className="min-h-screen bg-background text-[#F0EDE6] selection:bg-accent-gold/30 selection:text-white">
       {/* Sticky Top Navbar */}
-      <Navbar onEnterPresentation={() => setIsPresentationMode(true)} />
+      <Navbar onEnterPresentation={(type = "A") => setPresentationType(type)} />
 
       {/* Hero Header */}
       <Hero />
