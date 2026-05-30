@@ -319,10 +319,10 @@ export default function ClientPage({ initialCourseModules = [] }) {
                 <Separator className="bg-white/5" />
                 <Button 
                   asChild
-                  className="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full bg-[#00ff88] hover:bg-[#00cc6a] text-black rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(0,255,136,0.15)] hover:shadow-[0_0_20px_rgba(0,255,136,0.3)]"
                 >
                   <a href="https://us06web.zoom.us/j/88391763460?pwd=aR0z0mIKRIhR3KEvMEbJHslNNgA52c.1" target="_blank" rel="noopener noreferrer">
-                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                    <Video size={14} className="text-black" /> Join Zoom Meeting <ExternalLink size={12} className="text-black" />
                   </a>
                 </Button>
               </CardContent>
@@ -352,10 +352,10 @@ export default function ClientPage({ initialCourseModules = [] }) {
                 <Separator className="bg-white/5" />
                 <Button 
                   asChild
-                  className="w-full bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full bg-[#00d2ff] hover:bg-[#00a3cc] text-black rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(0,210,255,0.15)] hover:shadow-[0_0_20px_rgba(0,210,255,0.3)]"
                 >
                   <a href="https://us06web.zoom.us/j/88081796736?pwd=KPz4UYIub5Si0SZQ2YkHZvbiVJYoUu.1" target="_blank" rel="noopener noreferrer">
-                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                    <Video size={14} className="text-black" /> Join Zoom Meeting <ExternalLink size={12} className="text-black" />
                   </a>
                 </Button>
               </CardContent>
@@ -385,10 +385,10 @@ export default function ClientPage({ initialCourseModules = [] }) {
                 <Separator className="bg-white/5" />
                 <Button 
                   asChild
-                  className="w-full bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5"
+                  className="w-full bg-[#d946ef] hover:bg-[#c026d3] text-black rounded-xl text-xs font-bold py-5 cursor-pointer flex items-center justify-center gap-1.5 transition-all shadow-[0_0_15px_rgba(217,70,239,0.15)] hover:shadow-[0_0_20px_rgba(217,70,239,0.3)]"
                 >
                   <a href="https://us06web.zoom.us/j/82322682129?pwd=e8w6PvjSGiRVoqLk9OVBuXsCbMw0Wg.1" target="_blank" rel="noopener noreferrer">
-                    <Video size={14} /> Join Zoom Meeting <ExternalLink size={12} />
+                    <Video size={14} className="text-black" /> Join Zoom Meeting <ExternalLink size={12} className="text-black" />
                   </a>
                 </Button>
               </CardContent>
