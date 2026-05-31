@@ -55,10 +55,13 @@ function RegisterForm() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#2d8cf0]/10 rounded-full blur-[120px] pointer-events-none" />
 
         {/* Top Header */}
-        <div className="relative z-10 flex items-center gap-3">
-          <div className="bg-gradient-to-tr from-[#2d8cf0] to-[#00ff88] p-2.5 rounded-xl shadow-lg shadow-emerald-500/10">
-            <BookOpen className="text-black" size={20} />
-          </div>
+        <div className="relative z-10 flex flex-col items-start gap-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/syllabus/images/aurumrise_university_logo.png" 
+            alt="AurumRise University Logo" 
+            className="w-16 h-16 object-contain rounded-xl shadow-lg shadow-emerald-500/10 border border-white/10"
+          />
           <span className="font-serif font-black tracking-wider text-sm bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
             AURUM EDUCATION PORTAL
           </span>
